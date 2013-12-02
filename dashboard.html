@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-US">
+   <head>
+      <meta charset="utf-8">
+      <title>Social Navigation</title>
+      <link rel="stylesheet" type="text/css" href="login.css">
+      <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+      <style>
+         body {
+         padding-top: 60px;
+         padding-bottom: 40px;
+         }
+      </style>
+      <script src="js/jquery.js"></script>
+      <link rel="stylesheet" href="stylesheets/bootstrap-responsive.css">
+      <script src="http://code.highcharts.com/highcharts.js"></script>
+      <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+   </head>
+   <body>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+         <div class="navbar-inner">
+            <div class="container" style = "">
+               <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+               </a>
+               <a class="brand" href="#">WF</a> 
+               <div class="nav-collapse collapse">
+                  <ul class="nav"> 
+                     <li class="active"><a href="#">Admin</a></li>
+                     <li><a href="#about">About</a></li>
+                     <li><a href="#contact">Contact</a></li>
+                  </ul> 
+               </div>
+               <!--nav-collapse -->
+            </div>
+         </div>
+      </div>
+      <!-- main -->
+      <script>
+         $(function () { 
+           $('#overall-graph').highcharts({
+             title: {
+                 text: 'Overall Traffic',
+                 x: -20 //center
+             },
+             xAxis: {
+                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+             },
+             yAxis: {
+                 title: {
+                     text: 'Hits'
+                 },
+                 plotLines: [{
+                     value: 0,
+                     width: 1,
+                     color: '#808080'
+                 }]
+             },
+             tooltip: {
+                 valueSuffix: '°C'
+             },
+             series: [{
+                 name: 'All Websites',
+                 data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+             }] 
+          });
+          $('#specific-graph').highcharts({
+             title: {
+                 text: 'Domain Specific Traffic',
+                 x: -20 //center
+             },
+             /*subtitle: {
+                 text: 'Source: WorldClimate.com',
+                 x: -20
+             },*/
+             xAxis: {
+                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+             },
+             yAxis: {
+                 title: {
+                     text: 'Hits'
+                 },
+                 plotLines: [{
+                     value: 0,
+                     width: 1,
+                     color: '#808080'
+                 }]
+             },
+             tooltip: {
+                 valueSuffix: '°C'
+             },
+             legend: {
+                 layout: 'vertical',
+                 align: 'right',
+                 verticalAlign: 'middle',
+                 borderWidth: 0
+             },
+             series: [{
+                 name: 'Tokyo',
+                 data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+             }] 
+          });
+         });
+          
+      </script>
+      <div class = "container">
+         <div class = "row">
+            <div class ="span9 offset2" id="overall-graph" style=" height:400px; "></div>
+         </div>
+         <div class = "row">
+            <form class="form-search span5 offset2">
+               <input type="text" class="input-medium search-query">
+               <button type="button" class="btn">Search</button>
+            </form>
+            <div class ="span3">
+              <p>
+		asdf
+              </p>
+            </div>
+	    <div class ="span9 offset2" id="specific-graph" style=" height:400px; "></div>
+         </div>
+         <div class = "row">
+	    <div class ="span9 offset2">
+		<table class ="table">
+		  <thead>
+		     <tr>
+			<th>Rank #</th>
+			<th>Domain</th>
+			<th>Hits</th>
+		     </tr>
+		  </thead>
+		  <!--
+		    Use jade to use a loop
+		    each item in rankArray
+		        <tr>
+			     <td>item.rank</td>
+			     <td>item.domain</td>
+			     <td>item.hits</td>
+			</tr>
+		  -->
+		  <tbody>
+		    <tr>
+			<td>First Rank</td>
+			<td>First Domain</td>
+			<td>First Hits</td>
+		    </tr>
+		    <tr>
+			<td>Second Rank</td>
+			<td>Second Domain</td>
+			<td>Second Hits</td>
+		    </tr>
+		  </tbody>
+		</table>
+	    </div>
+	 </div>
+      </div>
+      <!--end main -->
+   </body>
+
+</html>

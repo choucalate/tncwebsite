@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Seashore CF</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="stylesheets/flatlogin.scss">
+        <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+        <link rel="stylesheet" href="stylesheets/bootstrap-responsive.css">
+        <link rel="stylesheet" href="stylesheets/main.css">
+
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+	<div id="fb-root"></div>
+        <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container" style = "">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">SCF</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Media <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-header">Check out our</li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="pictures.html">Pictures</a></li>
+                                    <li><a href="#">Videos</a></li>
+					    </ul>
+					</li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+			  <div class="btn-group">
+			     <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+			     <ul class="dropdown-menu">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			     </ul>
+			  </div>
+			<!-- Button to trigger modal -->
+			<a href="#myModal" style="float:right"role="button" data-toggle="modal" data-target="#myModal" class="btn">Login or Register</a>
+                        <!--<form class="navbar-form pull-right">
+			    
+                            <input class="span2" type="text" placeholder="Email">
+                            <input class="span2" type="password" placeholder="Password">
+                            <button type="submit" class="btn signin">Sign in</button>
+                            <button type="submit" class="btn register">Register</button>
+                        </form>-->
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+       <div id="myModal" class="modal hide fade">
+	<div class="flat-form">
+	    <ul class="tabs">
+		<li>
+		    <a href="#login" class="active">Login</a>
+		</li>
+		<li>
+		    <a href="#register">Register</a>
+		</li>
+		<li>
+		    <a href="#reset">Reset Password</a>
+		</li>
+	    </ul>
+	<div id="login" class="form-action show">
+	    <h1>Login on Flat UI</h1>
+	    <p>Lorem ipsum by <a href="http://codepen.io/davideast">David East</a> dolor sit amet, consectetur adipisicing elit. Veritatis, magni culpa facilis.</p>
+	    <form>
+		<ul>
+		    <li>
+			<input type="text" placeholder="Username" />
+		    </li>
+		    <li>
+			<input type="password" placeholder="Password" />
+		    </li>
+		    <li>
+			<input type="submit" value="Login" class="button" />
+		    </li>
+		</ul>
+	    </form>
+	</div>
+	    <!--/#login.form-action-->
+	<div id="register" class="form-action hide">
+	    <h1>Register</h1>
+	    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, culpa repudiandae.</p>
+	    <form>
+		<ul>
+		<li>
+		    <input type="text" placeholder="Username" />
+		</li>
+		<li>
+		    <input type="password" placeholder="Password" />
+		</li>
+		<li>
+		    <input type="submit" value="Sign Up" class="button" />
+		</li>
+		</ul>
+	    </form>
+	</div>
+	    <!--/#register.form-action-->
+	<div id="reset" class="form-action hide">
+	    <h1>Reset Password</h1>
+	    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, provident in accusamus possimus.</p>
+	    <form>
+		<ul>
+		    <li>
+			<input type="text" placeholder="Email" />
+		    </li>
+		    <li>
+			<input type="text" placeholder="Birthday" />
+		    </li>
+		    <li>
+			<input type="submit" value="Send" class="button" />
+		    </li>
+		</ul>
+	    </form>
+	</div>
+	<!--/#register.form-action-->
+	</div>
+           <div class="modal-header">
+              <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+              <h3>Modal header</h3>
+           </div>
+           <div class="modal-body">
+              <p>One fine body…</p>
+           </div>
+           <div class="modal-footer">
+              <a href="/emaillist" class="btn">Go to email</a>
+              <a href="#" class="btn">Close</a><a href="#" class="btn btn-primary">Save changes</a>
+           </div>
+       </div>
+       <div class="container">
+	    <h1 style = "margin-left: 10%; font-size: 2.3em">Seashore Campus Fellowship</h1>
+            <!-- Main hero unit for a primary marketing message or call to action -->
+	<div id="myCarousel" class="carousel slide" style= "width: 80%; margin-left: auto; margin-right: auto;">
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+            <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="img/cyscpic.jpg" alt="">
+                  </div>
+                  <div class="item">
+                    <img src="img/cyscpic2.jpg" alt="">
+                  </div>
+                  <div class="item">
+                    <img src="img/scfshirt.jpg" alt="">
+                  </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+              </div>
+
+            <div class="row-fluid" style="font-size: 1em">
+		<div class= "span12">
+                  <div class = "row-fluid">
+                    <div class="span4 offset1">
+                        <h2>Upcoming Events</h2>
+			
+                    </div>
+                    <div class="span4 offset2">
+        		<section class="cform">
+                          <article class="title">
+                             <span>Mailing List</span>
+                          </article>
+                          <article class="form">
+                            <div>Your Email</div>
+                            <input type="text" placeholder="name@emailprovider.com"/>
+                          </article>
+                          <article class="btn">
+                            <input type="submit" value="Subscribe"/>
+                          </article>
+                        </section>  
+                    </div>
+                  </div>
+                </div>
+            <div>
+	    
+            <div class ="row" >
+               <div class = "span8 offset2"style= "margin-top: 10px; border: 1px solid silver;">
+                  <p >Look at some stuff
+ 		    we've done recently
+                    .....................
+                    .....................
+		    .....................
+		    .....................
+                    and MiniPic </p>
+               </div>
+            </div>
+
+	    <div class ="row" style="margin-top:20px">
+               <div class = "span8 offset2"style= "border: 1px solid silver;">
+                  <h2>Here's a preview to our blog!</h2>
+		  <ul>
+		   <li>Title</li>
+		   <li>Title</li>
+		   <li>Title</li>
+		  <ul>
+               </div>
+            </div> 
+	    
+            <div class = "row" style=""> 
+               <div class = "span8 offset2"style= "margin-top: 10px; border: 1px solid silver;">
+                  <p > Check out some of our cool pics together... with Food!
+		   <br> Also, sign up for our newsletter to get frequent updates!
+                  </p>
+                </div>
+            </div>
+
+            <hr>
+
+            <footer>
+                <p>Join SCF Today!</p>
+		<p>Also, take a look at our Church here! <a href= "http://tjc.us"> <strong>True Jesus Church</strong> <a/></p>
+		<div class="fb-like" data-href="https://www.facebook.com/pages/Seashore-Campus-Fellowship/182313125144093" data-send="true" data-width="450" data-show-faces="true"></div>
+            </footer>
+
+        </div> <!-- /container -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>
