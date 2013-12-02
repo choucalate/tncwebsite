@@ -97,7 +97,18 @@ app.configure('production', function () {
 
 // Routes
 
-app.get('/', routes.index);
+app.get('/', function(req, res) {
+  picture.findLimited(200, 0, function(err, data) {
+
+    var items = "";
+
+    res.render('index.jade', {
+      title: "WHOO",
+      myitems: items,
+      arr: data
+    });
+  }); 
+});
 
 app.get('/mygallery', function(req, res) {
   picture.findLimited(400, 0, function(err, data) {
