@@ -10,7 +10,7 @@
     , "request" :"2.x.x"
     , "async" : "0.x.x"
     , "mongoose": "2.4.8"
-
+    , "connect": "2.x.x"
   },
   "engines": {
     "node":"0.10.x"
