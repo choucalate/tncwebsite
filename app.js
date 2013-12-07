@@ -149,6 +149,12 @@ app.get('/pictures', function(req, res) {
   }); 
 });
 
+app.get('/demohome', function(req, res) {
+  res.render('demo.jade', {
+
+  })
+});
+
 app.listen(port, function () {
     console.log("Express server listening on port %d in %s mode", port, app.settings.env);
 });
