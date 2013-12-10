@@ -5,10 +5,18 @@ head
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title John | Gallery
-    meta(name='description', content='Gamma Gallery - A Responsive Image Gallery Experiment')
-    meta(name='keywords', content='html5, responsive, image gallery, masonry, picture, images, sizes, fluid, history api, visibility api')
-    meta(name='author', content='Codrops')
+    meta(name='description', content='Johns Website')
+    meta(name='keywords', content='navigation, menu, responsive, border, overlay, css transition')
+    meta(name='author', content='John')
     link(rel='shortcut icon', href='../favicon.ico')
+    link(rel='stylesheet', type='text/css', href='/css/bootstrap.css')
+    script(src='/js/jquery-1.9.1.min.js')
+    script(src='/js/bootstrap.js')
+    link(rel='stylesheet', type='text/css', href='/css/normalize.css')
+    link(rel='stylesheet', type='text/css', href='/css/refine.css')
+    link(rel='stylesheet', type='text/css', href='/css/mystyle.css')
+    link(rel='stylesheet', type='text/css', href='/css/component.css')
+    script(src='/js/modernizr.custom.js')
     link(rel='stylesheet', type='text/css', href='/css/style.css')
     script(src='/js/modernizr.custom.70736.js')
     noscript
@@ -17,10 +25,17 @@ head
       style
         .main{display:none;} .support-note .note-ie{display:block;}
   body
+    .row(style='background:white; padding-top: 20px; padding-bottom: 20px; width: 100%; margin-left: 0')
+      span.col-md-1
+      header.codrops-header.col-md-3
+        h1 John Chou 
+        span.codrops-related Christian &amp; Programmer
+      .col-md-5(style='margin-left: 20%; margin-right: auto')
+        nav.cl-effect-21(style='padding-top: 10px; margin-bottom: 3%; ')
+          a.col-md-4(href='#', style='text-align:center') Resume
+          a.col-md-4(href='#', style='text-align:center') Contact
     .container
       .main
-        header.clearfix
-          h1 John's Gallery
           .support-note
             span.note-ie Sorry, only modern browsers.
         #gamma-container.gamma-container.gamma-loading
@@ -59,12 +74,14 @@ head
       
       Gamma.init( GammaSettings, fncallback );
       var data = !{JSON.stringify(arr)};
-      var items = [];
+      var items = [""];
+      // alert("items: " + items[0]);
       for(var i = 0; i < data.length; i++) {
-        items[0]+= '<li><div data-alt="img03" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350"><div data-src="' + data[i].images[0].source + '"data-min-width="1300"></div><div data-src="' + data[i].images[1].source + '" data-min-width="1000"></div><div data-src="' + data[i].images[2].source + '" data-min-width="700"></div><div data-src="' + data[i].images[3].source + '" data-min-width="300"></div><div data-src="' + data[i].images[4].source + '" data-min-width="200"></div><div data-src="' + data[i].images[5].source + '"data-min-width="140"></div><div data-src="' + data[i].images[6].source + '"></div><noscript><img src="' + data[i].images[6].source + '" alt="img03"/></noscript></div></li>';
+        items[0]+= '<li><div data-alt="img03" data-description="<h3></h3>" data-max-width="1800" data-max-height="1350"><div data-src="' + data[i].images[0].source + '"data-min-width="1300"></div><div data-src="' + data[i].images[1].source + '" data-min-width="1000"></div><div data-src="' + data[i].images[2].source + '" data-min-width="700"></div><div data-src="' + data[i].images[3].source + '" data-min-width="300"></div><div data-src="' + data[i].images[4].source + '" data-min-width="200"></div><div data-src="' + data[i].images[5].source + '"data-min-width="140"></div><div data-src="' + data[i].images[6].source + '"></div><noscript><img src="' + data[i].images[6].source + '" alt="img03"/></noscript></div></li>';
       }
+      // $('.gamma-gallery').html(items[0]);
+      // alert("items: " + items[0]);
       
-      //alert(items);
       // Example how to add more items (just a dummy):
       var page = 0;
 
@@ -81,4 +98,7 @@ head
       }
       } );
       }
+      setTimeout(function(){
+      $('#loadmore').trigger('click');
+      }, 1000);
       });

@@ -81,9 +81,9 @@
 }
 
 .no-touch .gamma-gallery li:hover .gamma-description {
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+/*	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 	filter: alpha(opacity=80);
-	opacity: 1;
+	opacity: 1;*/
 }
  
 .gamma-description:before {
