@@ -1,0 +1,149 @@
+extends layout3
+
+block content
+      #top_stuff.row(style='margin-top: 10%')
+        div
+          // START THE FEATURETTES
+          hr.featurette-divider
+          .row.featurette
+            .col-md-8
+              h2.featurette-heading Time to start building the front-end&excl;
+              p.lead
+                a(href='tympanus.net/codrops/', style='color:black') Tympanus 
+                | is a great website to get started off with both templates and nice widgets for your website&period;  I&apos;m going to use it for both&excl; to build the home page and gallery&period;  The pages are all under the &quot;Demo&quot; tab if you want to check it out &colon;&rpar;&period;  For this tutorial&comma; I&apos;ll be going over general concepts and paradigms in web design&comma; which should be of some aid to someone new to web design&period;  In addition to Tympanus&comma; I&apos;ll also be going over
+                a(href='http://getbootstrap.com/', style='color:black') Bootstrap 
+                | and how programmers tend to incorporate tons of open source things in our code so that everything becomes more refined&period;
+            .col-md-3.col-md-offset-1
+              img.featurette-image.img-responsive(src='/images/html5.png', alt='Generic placeholder image', width='100%')
+          hr.featurette-divider
+          .row.featurette
+            .col-md-3
+              img.featurette-image.img-responsive(src='/images/bootstrap.jpg', alt='Generic placeholder image', width='100%')
+            .col-md-8
+              h2.featurette-heading
+                | Checkpoint 1&colon;
+                span.text-muted Bootstrap Concepts
+              p.lead
+                | Head over to
+                a(href='http://getbootstrap.com/', style='color:black') Bootstrap 
+                | and download the customized version at the end with everything in it&period;  Simply take the bootstrap&period;css and bootstrap&period;js if you haven&apos;t already&period; The main concept of bootstrap is to design your website as a grid&period;  Essentially&comma; every website can be separated into a grid&comma; check out
+                a(href='http://getbootstrap.com/css/#grid', style='color:black')  this 
+                | And here are some of the useful &quot;classes&quot; that we&apos;ll get into in a bit
+          .col-md-12(<ul='', style='width:50%')
+            li.list-group-item col-md-&midast;
+            li.list-group-item col-md-offset-&midast;
+            li.list-group-item lead &lpar;for paragraphs&rpar;
+            li.list-group-item text-muted &lpar;for paragraphs&rpar;
+            li.list-group-item Overridden h1&comma; h2&comma; etc&period; header classes
+          br
+          .row.col-md-12
+            p.lead
+              | Later&comma; you&apos;re going to see the grid and how I&apos;ve personally designed my home page&period;  But for now&comma; you only have to understand how the grid is built&period;  Simply put&comma; you add a class to any html tag &lpar;i&period;e&period; div&comma; img&comma; h1&comma; h2&comma; etc&rpar; that follows this format&comma; col-md-&midast;&comma; or col-md-offset-&midast;&period;  &lpar;The &midast; is used to represent a number between 1 and 12 inclusive&rpar;  And the offset helps to add a bit of white space so that the content can be minimized&period;  The main reason to use bootstrap is because you want your website to be responsive&comma; or in other words&comma; be able to resize to any kind of screen size without turning ridiculous&period;  I&apos;m sure you&apos;ve seen how poorly designed websites look on tablets and phones that turns into something difficult to read&period;  Below&comma; is an example of how I used bootstrap in designing the personal page&comma; which is pretty easy to customize on your own
+              pre.prettyprint.lang-html.
+                
+                 &lt;div class =&quot;row&quot;&gt;
+                    &lt;div class =&quot;col-md-12&quot;&gt;
+                      &lt;p class =&quot;text-muted&quot; style= &quot;font-size: 2em&quot;&gt; A little about me... &lt;/p&gt;
+                      &lt;p class =&quot;lead&quot;&gt; I'm a 3rd-year Computer Science student at UCSD...
+                      &lt;hr class =&quot;featurette-divider&quot;&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                                         
+          hr.featurette-divider
+          .row.featurette
+            .col-md-7
+              h2.featurette-heading
+                | Checkpoint 2&colon;
+                span.text-muted Tympanus
+              p.lead
+                | This will just be a short bit on how we can use outside open-source resources to be included in our page&period;  We&apos;re going to use the Creative links tutorial that we used to create the navigation bar in the demo page and also on the header&period;  It&apos;s actually fairly simple&comma; and you can check out the example here&colon;
+                a(href='http://tympanus.net/Development/CreativeLinkEffects/', style='color:black')  Creative Links
+            .col-md-5
+              img.featurette-image.img-responsive(src='/images/codrops.png', alt='Generic placeholder image')
+          br
+          .row.col-md-12
+            p.lead
+              | Below&comma; after adding in the link rel&apos;s and script src&apos;s to include the css components and javascript files&comma; we simply add the
+              br
+              b cl-effect-8
+              | class&period;  Also&comma; note how we use bootstrap here to make sure that the links are styled in a way that we want them to
+              pre.prettyprint.lang-html.
+                 &lt;nav class=&quot;cl-effect-8&quot; &gt; 
+                   &lt;a class =&quot;col-md-3 mylink&quot; href=&quot;project.html&quot; style =&quot;text-align:center; &quot;&gt;
+                     Projects
+                  &lt;/a&gt; 
+                  &lt;a class =&quot;col-md-3 mylink&quot; href=&quot;gallery.html&quot; style=&quot;text-align:center&quot;&gt;
+                    Gallery
+                  &lt;/a&gt; 
+                  &lt;a class =&quot;col-md-3 mylink&quot; href=&quot;#&quot; style =&quot;text-align:center&quot;&gt;
+                    Portfolio
+                  &lt;/a&gt; 
+                 &lt;/nav&gt;
+                                         
+          hr.featurette-divider
+          .row.featurette
+            .col-md-4
+              img.featurette-image.img-responsive(src='/images/grid.png', alt='Generic placeholder image')
+            .col-md-8
+              h2.featurette-heading
+                | Checkpoint 3&colon;
+                span.text-muted  Building the Grid for the Header and Body
+              p.lead
+                | Now we&apos;re going to use bootstrap to build our ideal grid on the left&period;  With bootstrap&comma; all of this becomes so much easier&comma; when you look at the code&comma; we&apos;re just using col-md-&midast; and col-md-offset-&midast; classes to style this&period; The header will span the entire head of the page&comma; as shown in the grid&period;  The main body will span roughly 7 to 9 of the 12 on the left&comma; and the sidebar will span roughly 3 to 5&period;
+              br
+          .row.col-md-12
+            p.lead
+              | Below&comma; we have the code for the header&comma; which uses col md&apos;s to position itself to the left&comma; while placing the navigation resume on the top right&period;  Your ideal header will want to capture the audience with what your website is about&comma; if it&apos;s a personal site&comma; you want to have your name there&period;  Headers make all the difference&comma; do not pass it off as some random paragraph&period;  Also&comma; having a sub-header can be decorative and intriguing&comma; supplementing the effect of the title&period;
+              pre.prettyprint.lang-html.
+                 &lt;div class =&quot;row &quot; style=&quot;background:white; padding-top: 20px; padding-bottom: 20px; width: 100%; margin-left: 0&quot; &gt;
+                      &lt;span class =&quot;col-md-1&quot;&gt;
+                      &lt;/span&gt;
+                      &lt;header class=&quot;codrops-header col-md-3&quot;&gt;
+                        &lt;a href =&quot;index3.html&quot;&gt; &lt;h1&gt;John Chou &lt;/h1&gt; &lt;/a&gt;
+                        &lt;span class =&quot;codrops-related&quot;&gt;Christian &amp; Programmer&lt;/span&gt;
+                      &lt;/header&gt;
+                      &lt;div class = &quot;col-md-5&quot; style= &quot;margin-left: 20%; margin-right: auto&quot;&gt;
+                        &lt;nav class=&quot;cl-effect-21&quot; style=&quot;padding-top: 10px; margin-bottom: 3%; &quot;&gt;
+                          &lt;a class =&quot;col-md-4&quot; href=&quot;resume.html&quot; style =&quot;text-align:center&quot;&gt;Resume&lt;/a&gt;
+                          &lt;a class =&quot;col-md-4&quot; href=&quot;#&quot; style=&quot;text-align:center&quot;&gt;Contact&lt;/a&gt;
+                        &lt;/nav&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                                         
+          .row.col-md-12
+            p.lead
+              | And now&comma; the code for the body&period;  The idea is to contain the body within a container&comma; which will give your content some kind of structure&comma; as it uses padding to allow the attention to draw to the text or images that you have&period;  Again&comma;here we use columns and offsets&comma; of 8 and 1 respectively to differentiate it from the sidebar&period;  You want a clear difference between main content and sidebar content&comma; and adding in the featurette dividers &lpar;included in bootstrap&rpar; gives the content-like feel&period;  In the same way&comma; the sidebar makes use of this by having a column of roughly 3 to 4&comma; in which it spans content&period; The sidebar should contain either information that supplements the content within the body&comma; or add decorative value&period;
+              pre.prettyprint.lang-html.
+                &lt;div class=&quot;container&quot; &gt;
+                  &lt;hr class=&quot;featurette-divider&quot;&gt;
+                  &lt;div class =&quot;row aboutme&quot;&gt;
+                     &lt;div class =&quot;row col-md-8 col-md-offset-1&quot;&gt;
+                       &lt;div class =&quot;row col-md-12&quot;&gt;
+                         &lt;h1 class = &quot;&quot;&gt;Welcome,&lt;/h1&gt;
+                         &lt;h2 &gt;this is my personal site, feel free to look around &lt;/h2&gt;
+                       &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                                         
+          hr.featurette-divider
+          .row.featurette
+            .col-md-9.col-md-offset-2
+              h2.featurette-heading
+                | Final Checkpoint
+                span.text-muted What can I customize myself&quest;
+              p.lead
+                | I hope that this tutorial doesn&apos;t give you the feeling that you should follow the exact layout I had&period;  I normally draw out my layout by hand&comma; and figure out where the col-md&apos;s go so that I can plan out how I should use bootstrap&period;  Once that&apos;s done&comma; you can essentially design whatever template you want&period;  Also&comma; you should probably add textures in background as I did&comma; which takes away from the overly-uniform design&period;  Once you find an image you really like&comma; follow this tutorial by
+                a(href='http://www.css-tricks.com/perfect-full-page-background-image/', style='color:black')  CSS-Tricks 
+                br
+                br
+                | Lastly&comma; I promised a few tips on responsiveness&colon; When designing in bootstrap&comma; don&apos;t maul the design by adding custom styles to every tag&comma; you will be able to accomplish most of that using bootstrap&apos;s API&period;  And when you feel like you&apos;ve finished your grid layout&comma; build the layout using empty space on your HTML&comma; and test its responsiveness with this&colon;
+                a(href='http://www.mattkersley.com/responsive', style='color:black')  CSS-Tricks 
+          hr.featurette-divider
+          // /END THE FEATURETTES
+        // /span
+        // /span
+      // /row
+      hr
+    script(src='js/cbpHorizontalSlideOutMenu.min.js')
+    script
+      var menu = new cbpHorizontalSlideOutMenu( document.getElementById( 'cbp-hsmenu-wrapper' ) );

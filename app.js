@@ -98,42 +98,31 @@ app.configure('production', function () {
 // Routes
 
 app.get('/', function(req, res) {
+  res.render('demo.jade', {
+ title: "John | Home"
+  })
+});
+
+app.get('/gallery', function(req, res) {
   picture.findLimited(200, 0, function(err, data) {
-
-    var items = "";
-
     res.render('index.jade', {
-      title: "WHOO",
-      myitems: items,
+      title: "John | Gallery",
       arr: data
     });
   }); 
 });
 
-app.get('/mygallery', function(req, res) {
-  picture.findLimited(400, 0, function(err, data) {
-    res.end(JSON.stringify(data, null, '\t'));
-  });
-  // routes.getSomeLinks(req, res, function(err, data) {
-  //   if(err) var pic = "picture cannot be found";
-  //   else {
-  //     var picArr = data;
-  //     //console.log(JSON.stringify(picArr[0].images[4].source, null, '\t'));
-  //     res.render('login2.jade', {
-  //       title: "WHOO",
-  //       arr: picArr
-  //     });
-  //   }
-  // });
-});
+app.get('/resume', function(req, res) {
 
-app.get('/fakerender', function(req, res) {
-  picture.findLimited(100, 0, function(err, data) {
-    res.render('login2.jade', {
-      title: "WHOO",
-      arr: data
+    res.render('resume.jade', {
+      title: "John | Resume"
     });
-  }); 
+
+});
+app.get('/projects', function(req, res) {
+    res.render('projects.jade', {
+      title: "John | Project"
+    });
 });
 
 app.get('/pictures', function(req, res) {
@@ -149,11 +138,71 @@ app.get('/pictures', function(req, res) {
   }); 
 });
 
-app.get('/demohome', function(req, res) {
-  res.render('demo.jade', {
+app.get('/portfolio/index', function(req, res) {
+    res.render('portindex.jade', {
+      title: "Portfolio | Home",
+      task: "Building Your Own Website"
+    });
+});
 
+app.get('/portfolio/fb', function(req, res) {
+    res.render('fbauth.jade', {
+      title: "Portfolio | FB",
+      task: "Setting up Facebook Integration"
+    });
+});
+
+app.get('/portfolio/node', function(req, res) {
+    res.render('nodestart.jade', {
+      title: "Portfolio | node",
+      task: "Setting up NodeJs"
+    });
+});
+
+app.get('/portfolio/client', function(req, res) {
+    res.render('client.jade', {
+      title: "Portfolio | client",
+      task: "Building the Client Side"
+    });
+});
+
+app.get('/portfolio/server', function(req, res) {
+    res.render('server.jade', {
+      title: "Portfolio | Server",
+      task: "Building the Server"
+    });
+});
+
+app.get('/portfolio/heroku', function(req, res) {
+    res.render('heroku.jade', {
+      title: "Portfolio | Heroku",
+      task: "Deploying with Heroku"
+    });
+});
+
+app.get('/about', function(req, res) {
+  res.render('about.jade', {
+    title: "Portfolio | About Me",
+    task: "About Me :)"
   })
 });
+
+app.get('/links', function(req, res) {
+  res.render('links.jade', {
+    title: "Portfolio | Links",
+    task: "Some Interesting Links"
+  })
+});
+
+app.get('/reviews', function(req, res) {
+  res.render('reviews.jade', {
+    title: "Portfolio | Reviews",
+    task: "Reviews"
+  })
+});
+
+
+
 
 app.listen(port, function () {
     console.log("Express server listening on port %d in %s mode", port, app.settings.env);

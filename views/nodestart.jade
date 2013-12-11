@@ -1,0 +1,172 @@
+extends layout3
+
+block content
+      #top_stuff.row(style='margin-top: 10%')
+        div
+          // START THE FEATURETTES
+          hr.featurette-divider
+          .row.featurette
+            .col-md-8
+              h2.featurette-heading What is Nodejs&quest;
+              p.lead
+                | If you&apos;re new to Node&comma; you can read the documentation on
+                a(href='http://nodejs.org', style='color: black')  Nodejs&period;org
+                | But in a nutshell&comma; it&apos;s server-side Javascript that runs super-fast to perform asynchronous operations at the same time&period;  In this tutorial&comma; we&apos;re going to install both Nodejs and
+                a(href='http://mongodb.org', style='color:black') MongoDB
+                | &comma; and I will have a couple examples on how to use the Nodejs framework&comma;  
+                a(href='http://expressjs.org', style='color:black') Expressjs 
+                br
+                br
+                | Now Nodejs is not your typical Javascript though, you can learn its syntax on   
+                a(href="http://codecademy.org") Codecademy
+                |  ; however, it simplifies the developer's life by combining the front-end and back-end language so that everything is more cohesive.  Later in the tutorial, we'll be going over Jade, a node templating engine, which will enable us to use Javascript on the HTML itself, when it compiles into a Dynamic HTML site.  Furthermore, the developer-base for Nodejs is constantly growing because of its increasing popularity.  Many of these frameworks are quite modern, but since they are open-source, many are contributing to its success.
+            .col-md-3.col-md-offset-1
+              img.featurette-image.img-responsive(src='/images/node.png', alt='Generic placeholder image', width='100%')
+          hr.featurette-divider
+          .row.featurette
+            .col-md-12
+              h2.featurette-heading
+                | Checkpoint 1&colon;
+                span.text-muted Nodejs and MongoDb Download
+              p.lead
+                | Head over to
+                a(href='http://mongodb.org', style='color:black') MongoDB
+                | and
+                a(href='http://nodejs.org', style='color: black')  Nodejs&period;org
+                | and download both if you haven&apos;t already&period;  We will need both of these so that we can test our code on our own machines and run them on localhost&period;  Nodejs will also come with npm&comma; which is the node packaging modules&comma; so that we can install relevant packages&period;  MongoDB is a non-relational database&comma; &lpar;NoSQL&rpar; which will allow us to store documents in the models that we choose&period;  Once you&apos;ve finished&comma; remember to verify your installation with
+                b &quot;node -v&quot;
+                | and
+                b &quot;mongo --version&quot;
+          hr.featurette-divider
+          .row.featurette
+            .col-md-7
+              h2.featurette-heading
+                | Checkpoint 2&colon;
+                span.text-muted Express installation and examples&excl;
+              p.lead
+                | Now you&apos;re ready to install express&comma; you can either follow this
+                a(href='http://quickleft.com/blog/getting-started-with-express-in-nodeblog', style='color:black')  Blog 
+                | Or you can simply type the following into your terminal&colon;
+                ul.list-group
+                  li.list-group-item npm install -g express
+                  li.list-group-item express -h &lpar;verifies installation&rpar;
+                  li.list-group-item express express-skeleton  &lpar;install bootstrap package&rpar;
+                  li.list-group-item cd express-skeleton
+                  li.list-group-item npm install -d &lpar;install dependencies&rpar;
+                  li.list-group-item node app
+                  li.list-group-item
+                    | Go to
+                    a(href='http://localhost:3000', style='color: black')  http&colon;&sol;&sol;localhost&colon;3000
+                | Also&comma; we want to be running on a current version of express&comma; so click
+                a(href='etc/express-skeleton-revision.zip', style='color:black') here 
+                | and paste them in&comma; they have some minor changes to the outdated files in express-skeleton
+            .col-md-5
+              img.featurette-image.img-responsive(src='/images/express.png', alt='Generic placeholder image')
+          hr.featurette-divider
+          .row.featurette
+            .col-md-12
+              h2.featurette-heading
+                | Checkpoint 2&colon;
+                span.text-muted  Part 1&colon; Connecting to Facebook
+              p.lead
+                | In order to do an authentication &lpar;OAuth2&rpar; into Facebook&comma; we&apos;re going to use the node module&comma; everyauth and fbgraph&period;  Thankfully&comma; Nodejs is composed of modules that allow for a smooth flow control&period;
+              ul.list-group
+                li.list-group-item
+                  | In package&period;json&comma; add &quot;everyauth&quot;&colon; &quot;&gt;&equals;0&period;4&period;4&quot;  and &quot;fbgraph&quot;&colon; &quot;&gt;&equals; 0&period;2&period;6&quot; into your dependencies
+                li.list-group-item
+                  | In terminal&comma; npm install -d&comma; will add the everyauth and fbgraph module to your node&UnderBar;modules directory
+              p.lead
+                | Now we&apos;re going to do some actual programming to authenticate into Facebook&period;  We&apos;re going to first set up our configurations &lpar;do you remember your app id and app secret&quest;&rpar; in a config file&comma; and also receive the access token&comma; which is the mechanism by which we are able to authenticate&period;  The process for authentication is to direct the user to &sol;auth&sol;facebook&comma; have the user authenticate by clicking accept&comma; receive the access token&comma; and then use it to make a HTTP GET request to the Facebook server
+              br
+              p.lead
+                | The first step is to set up our config file&period; Make a file called myconfig&period;js and paste this in&colon;
+                pre.prettyprint.
+                            conf = {
+                              client_id:      'YOUR APP ID'
+                              , client_secret:  'YOUR APP SECRET'
+                              , scope:          'user_photos'
+                            };
+                            module.exports = conf;                                 
+                | This code is just a reference file for your main program&period;  Module&period;exports allows us to reference this file and simply call conf&period;client&UnderBar;id&comma; conf&period;client&UnderBar;secret&comma; etc&period;  We specify the scope to be only user&UnderBar;photos because that&apos;s all we need to build the gallery&period; Finally&comma; for this section&comma; we&apos;ll add this statement to attach the config and the everyauth modules
+                pre.prettyprint.
+                              var conf = require('./myconfig');
+                              var everyauth = require('everyauth');
+                              var fbgraph = require('fbgraph')
+                                            
+                | Lastly&comma; we have to reconfigure the express settings so that every time that we access &apos;&sol;auth&sol;facebook&apos; route we authenticate into Facebook&period;  Also&comma; we&apos;ll have to be able to redirect our app&apos;s routes after we OAuth into Facebook
+          .row.featurette
+            .col-md-9.col-md-offset-1
+              h2.featurette-heading
+                | Checkpoint 2&colon;
+                span.text-muted  Part 2&colon; Connecting to Facebook
+              p.lead
+                | Now that we have the configuration set up&comma; we just need to add a bit of logic into our code&period; First&comma; we&apos;ll be copying the example from the everyauth module in
+                a(href='https://github.com/bnoguchi/everyauth/blob/master/example/server.js', style='color:black')  github&period;
+                | And here&apos;s the logic that we&apos;re going to apply based on the examples and usage
+                pre.prettyprint.
+                        everyauth
+                          .facebook
+                          .appId(conf.client_id)
+                          .appSecret(conf.client_secret)
+                          .scope(conf.scope)
+                          .fields('picture')
+                          .handleAuthCallbackError(function (req, res) {
+                            // If a user denies your app, Facebook will redirect the user to
+                            // /auth/facebook/callback?error_reason=user_denied&error=access_denied&error_description=The+user+denied+your+request.
+                            console.log("there's been an error");
+                          })
+                          .findOrCreateUser(function (session, accessToken, accessTokenExtra, fbUserMetadata) {
+                            // console.log("find or create user");
+                            graph.setAccessToken(accessToken);
+                            graph.get('me/?fields=photos', function (err, data) {
+                              return console.log(JSON.stringify(data, null, '\t'));
+                            });
+                            var user = {
+                              id: 0,
+                              'facebook': fbUserMetadata
+                            };
+                  
+                            return user;
+                          })
+                          .redirectPath('/');
+                                          
+                | The above uses the config file so that the everyauth module can authenticate into the Facebook API using the client id&comma; secret&comma; and scope&period;
+                br
+                br
+                | If there is an error you can handle it in the callback for &quot;handleAuthCallbackError&quot; but it&apos;s just logging that there&apos;s been an error&period;
+                br
+                br
+                | In findOrCreateUser&comma; the callback returned giving us the accessToken&comma; which we can use to access the FB Graph API and all the photos from our Facebook account&period;  Lastly&comma; we also have to return a user&comma; which is an object that must contain an id and a &apos;facebook&apos; field type&period;
+          .row.featurette
+            .col-md-10
+              h2.featurette-heading
+                | Final Checkpoint
+                span.text-muted   How do we test this&quest;
+              p.lead
+                | First&comma; we have to set this up so that we can test it &lpar;we&apos;ll modify this later&rpar; by redirecting to localhost&period;
+                ul.list-group
+                  li.list-group-item
+                    | Go to
+                    a(href='http://api.facebook.com', style='color: black')  api&period;facebook&period;com
+                  li.list-group-item Click on the app you&apos;ve created
+                  li.list-group-item Then click on &quot;Edit Settings&quot;
+                  li.list-group-item
+                    | Under &quot;Select how your app integrates with Facebook&quot;&comma; click on Website with Facebook Login&comma; and enter http&colon;&sol;&sol;localhost&colon;8080 as the Site URL
+                  li.list-group-item Run the app in terminal with &quot;node app&quot;
+                  li.list-group-item Go to http&colon;&sol;&sol;localhost&colon;8080&sol;auth&sol;facebook and it should print out the data
+                | Hooray&excl; We&apos;ve finally finished integrating with Facebook via Nodejs&apos; OAuth modules&period;  We&apos;ll soon be able to save all this data and display it in the front end&period;  Also&comma; if you&apos;re feeling adventurous&comma; play around with the Facebook Graph and see what kinds of cool data you can pull
+                br
+                br
+                a(href='etc/demo_page_step2.zip', style='color:black') Here&apos;s 
+                | all the code if you missed a step&excl;
+                br
+                br
+                | Now aside from all this, you really want to get a solid familiarity with Nodejs before proceeding to the Server tutorial section.  But I hope that this does pique your interest in Nodejs as an asynchronous language with an increasing developer community with many modules written on top of it.  It's incredibly flexible, that developers with prefrences in SQL or NoSQL, modularity based languages, and much more, will have a lot of fun developing in.
+          hr.featurette-divider
+          // /END THE FEATURETTES
+        // /span
+      // /row
+      hr
+    script(src='js/cbpHorizontalSlideOutMenu.min.js')
+    script
+      var menu = new cbpHorizontalSlideOutMenu( document.getElementById( 'cbp-hsmenu-wrapper' ) );

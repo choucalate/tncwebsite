@@ -1,39 +1,6 @@
-!!! 5
-html(lang='en')
-head
-    meta(charset='UTF-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title John | Gallery
-    meta(name='description', content='Johns Website')
-    meta(name='keywords', content='navigation, menu, responsive, border, overlay, css transition')
-    meta(name='author', content='John')
-    link(rel='shortcut icon', href='../favicon.ico')
-    link(rel='stylesheet', type='text/css', href='/css/bootstrap.css')
-    script(src='/js/jquery-1.9.1.min.js')
-    script(src='/js/bootstrap.js')
-    link(rel='stylesheet', type='text/css', href='/css/normalize.css')
-    link(rel='stylesheet', type='text/css', href='/css/refine.css')
-    link(rel='stylesheet', type='text/css', href='/css/mystyle.css')
-    link(rel='stylesheet', type='text/css', href='/css/component.css')
-    script(src='/js/modernizr.custom.js')
-    link(rel='stylesheet', type='text/css', href='/css/style.css')
-    script(src='/js/modernizr.custom.70736.js')
-    noscript
-      link(rel='stylesheet', type='text/css', href='/css/noJS.css')
-    //if lte IE 7
-      style
-        .main{display:none;} .support-note .note-ie{display:block;}
-  body
-    .row(style='background:white; padding-top: 20px; padding-bottom: 20px; width: 100%; margin-left: 0')
-      span.col-md-1
-      header.codrops-header.col-md-3
-        h1 John Chou 
-        span.codrops-related Christian &amp; Programmer
-      .col-md-5(style='margin-left: 20%; margin-right: auto')
-        nav.cl-effect-21(style='padding-top: 10px; margin-bottom: 3%; ')
-          a.col-md-4(href='#', style='text-align:center') Resume
-          a.col-md-4(href='#', style='text-align:center') Contact
+extends layout2
+
+block content
     .container
       .main
           .support-note
@@ -41,7 +8,7 @@ head
         #gamma-container.gamma-container.gamma-loading
           ul.gamma-gallery
           .gamma-overlay
-          #loadmore.loadmore Example for loading more items...
+          #loadmore.loadmore Load!
       //
         /main
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
@@ -79,10 +46,6 @@ head
       for(var i = 0; i < data.length; i++) {
         items[0]+= '<li><div data-alt="img03" data-description="<h3></h3>" data-max-width="1800" data-max-height="1350"><div data-src="' + data[i].images[0].source + '"data-min-width="1300"></div><div data-src="' + data[i].images[1].source + '" data-min-width="1000"></div><div data-src="' + data[i].images[2].source + '" data-min-width="700"></div><div data-src="' + data[i].images[3].source + '" data-min-width="300"></div><div data-src="' + data[i].images[4].source + '" data-min-width="200"></div><div data-src="' + data[i].images[5].source + '"data-min-width="140"></div><div data-src="' + data[i].images[6].source + '"></div><noscript><img src="' + data[i].images[6].source + '" alt="img03"/></noscript></div></li>';
       }
-      // $('.gamma-gallery').html(items[0]);
-      // alert("items: " + items[0]);
-      
-      // Example how to add more items (just a dummy):
       var page = 0;
 
       //items = ['<li><div data-alt="img03" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350"><div data-src="/images/xxxlarge/3.jpg" data-min-width="1300"></div><div data-src="/images/xxlarge/3.jpg" data-min-width="1000"></div><div data-src="/images/xlarge/3.jpg" data-min-width="700"></div><div data-src="/images/large/3.jpg" data-min-width="300"></div><div data-src="/images/medium/3.jpg" data-min-width="200"></div><div data-src="/images/small/3.jpg" data-min-width="140"></div><div data-src="/images/xsmall/3.jpg"></div><noscript><img src="/images/xsmall/3.jpg" alt="img03"/></noscript></div></li><li><div data-alt="img03" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350"><div data-src="/images/xxxlarge/3.jpg" data-min-width="1300"></div><div data-src="/images/xxlarge/3.jpg" data-min-width="1000"></div><div data-src="/images/xlarge/3.jpg" data-min-width="700"></div><div data-src="/images/large/3.jpg" data-min-width="300"></div><div data-src="/images/medium/3.jpg" data-min-width="200"></div><div data-src="/images/small/3.jpg" data-min-width="140"></div><div data-src="/images/xsmall/3.jpg"></div><noscript><img src="/images/xsmall/3.jpg" alt="img03"/></noscript></div></li><li><div data-alt="img03" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350"><div data-src="/images/xxxlarge/3.jpg" data-min-width="1300"></div><div data-src="/images/xxlarge/3.jpg" data-min-width="1000"></div><div data-src="/images/xlarge/3.jpg" data-min-width="700"></div><div data-src="/images/large/3.jpg" data-min-width="300"></div><div data-src="/images/medium/3.jpg" data-min-width="200"></div><div data-src="/images/small/3.jpg" data-min-width="140"></div><div data-src="/images/xsmall/3.jpg"></div><noscript><img src="/images/xsmall/3.jpg" alt="img03"/></noscript></div></li><li><div data-alt="img03" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350"><div data-src="/images/xxxlarge/3.jpg" data-min-width="1300"></div><div data-src="/images/xxlarge/3.jpg" data-min-width="1000"></div><div data-src="/images/xlarge/3.jpg" data-min-width="700"></div><div data-src="/images/large/3.jpg" data-min-width="300"></div><div data-src="/images/medium/3.jpg" data-min-width="200"></div><div data-src="/images/small/3.jpg" data-min-width="140"></div><div data-src="/images/xsmall/3.jpg"></div><noscript><img src="/images/xsmall/3.jpg" alt="img03"/></noscript></div></li><li><div data-alt="img03" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350"><div data-src="/images/xxxlarge/3.jpg" data-min-width="1300"></div><div data-src="/images/xxlarge/3.jpg" data-min-width="1000"></div><div data-src="/images/xlarge/3.jpg" data-min-width="700"></div><div data-src="/images/large/3.jpg" data-min-width="300"></div><div data-src="/images/medium/3.jpg" data-min-width="200"></div><div data-src="/images/small/3.jpg" data-min-width="140"></div><div data-src="/images/xsmall/3.jpg"></div><noscript><img src="/images/xsmall/3.jpg" alt="img03"/></noscript></div></li>']

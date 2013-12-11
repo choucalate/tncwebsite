@@ -1,0 +1,48 @@
+extends layout3
+
+block content
+      #top_stuff.row(style='margin-top: 10%')
+        div
+          // START THE FEATURETTES
+          hr.featurette-divider
+          .row.featurette
+            .col-md-8
+              h2.featurette-heading Who is John Chou? And what about Nodejs?
+              p.lead
+                | My name's John, and I'm an undergraduate Junior at the University of California, San Diego studying Computer Science.  I started with an internship my Dad gave me at Four Seasons Chemicals, where I built a business website out of HTML5, CSS3, JS, and PHP.  At the time, I didn't really have the programmatical concepts that I do right now, and that's why I want to write this blog for you all!
+                br
+                br
+                | Nodejs is a beautiful language, now combine that with the awesomeness of MongoDB to easily store non-relational information in a database that fetches data to your desire.  Finally, couple that with responsive design using Bootstrap and open-source front-end resources that are easily tuneable to your every need and you got a web application that's production ready.  Of course it's not that simple, but it all starts with the basics, as I did. I started learning Nodejs in my Sophomore year in college, and even then many of my concepts were flawed.  I had no idea what semaphores were in the context of MongoDB even though I was using it, nor did I have any idea what it meant for Nodejs to be asynchronous, as I wrote callback within callback within callback, that utterly slowed down the program dramatically.
+                br
+                br
+                | However, as I continually designed projects, including my summer internship at   
+                a(href = "http://webflow.com") Webflow 
+                | I built a Nodejs stream module called s3logparse, which can be found on my 
+                a(href ='/') Personal Site!
+                br
+                br
+                | The main purpose of this portfolio is to interest those that are still new to the programming world, to take a chance in Nodejs.  A lot of programmers start with PHP, Ruby on Rails, Django, etc. but Nodejs is truly a fun "hipster" language that I think all developers can truly enjoy.  I wanted to demonstrate its flexibility and allow your imagination create everything else with the technologies I've demonstrated.  At first, it'll be modifying the source code little by little, but once you get the hang of it, you'll be able to deploy applications like THAT!
+            .col-md-3.col-md-offset-1
+              img.featurette-image.img-responsive(src='/images/john.jpg ', alt='Generic placeholder image', width='100%')
+          hr.featurette-divider
+          
+          .row.featurette
+            .col-md-9.col-md-offset-1
+              h2.featurette-heading
+                | Cool stuff about me  
+                span.text-muted I promise, it's cool
+              p.lead
+                | I love playing guitar even though I'm not very good.  My sister taught me back in high school, and ever since then, I've been trying to do it all solo by watching Youtube videos.  One of these days, when I get good enough, I want to upload of me singing and playing guitar.  Probably an unlisted video, so only you cool people can find it.
+              p.lead
+                | I'm part of 
+                a(href ="http://scf.ucsd.edu") Seashore Campus Fellowship
+                |   We're an awesome student org with a small group of cool people, edifying bible studies, fun fellowships, and lots of laughs.  Come check us out!
+              p.lead
+                | Furthermore&comma; it&apos;s much more impressive to scale up the number of &quot;dynos&sol;processes&quot; your application is built on if you expand to something larger&period;  1 Dyno really isn&apos;t impressive and your web application doesn&apos;t actually run very fast&period;  If you get many page hits&comma; what you&apos;ll end up getting is a very large problem with latency issues&period;  But now it&apos;s all up to you on how you want to customize your site&excl; Feel free to email me if you liked this tutorial or want to tell me how this can be improved&excl;
+          br
+          hr.featurette-divider
+          // /END THE FEATURETTES
+        // /span
+        // /span
+      // /row
+      hr

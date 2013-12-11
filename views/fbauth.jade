@@ -1,0 +1,67 @@
+extends layout3
+
+block content
+      #top_stuff.row(style='margin-top: 10%')
+        div
+          // START THE FEATURETTES
+          hr.featurette-divider
+          .row.featurette
+            .col-md-7
+              h2.featurette-heading Why Facebook&quest;
+              p.lead
+                | Facebook has become our medium of storage for all of our pictures&comma; posts&comma; and more&period;  If we can incorporate a hint of that within our website&comma; our digital presence will be much more formalized&comma; but will still have the content that Facebook contains&period;  However&comma; specifically with this website&comma; we are going to use the Facebook API to put all of your Facebook pictures on your personal  gallery&excl;  This is actually going to be pretty simple with a simple authentication system and some JSON extraction&comma; which we&apos;ll get to later
+            .col-md-3.col-md-offset-2
+              img.featurette-image.img-responsive(src='/images/FacebookLogo.jpg', alt='Generic placeholder image', width='60%')
+          hr.featurette-divider
+          .row.featurette
+            .col-md-12
+              h2.featurette-heading Step 1&colon; Facebook Setup
+              p.lead
+                | The Facebook SDK has a plethora of functions we can use&comma; but we&apos;re going to focus on
+                | using the Facebook SDK for the sole purpose of displaying our photos&period;  This way&comma; any photos that we&apos;re tagged in or that we&apos;ve uploaded will show up in our website and we will not have to reupload them&period;  Adding customization to which photos are displayed is also incredibly simple as well&period;  In this tutorial we&apos;re going to register as a developer&comma;
+                br
+                br
+                | Note that even though we're only using Facebook for building our gallery with the back end, the Facebook API still has many useful capabilities.  Some of which will be quite specific to what you are building, but the strength of the Facebook API lies in the graph search, which we will slightly touch upon in the next step when we connect the Facebook side with Nodejs.
+          hr.featurette-divider
+          .row.featurette
+            .col-md-7
+              h2.featurette-heading
+                | Checkpoint 1&colon;
+                span.text-muted Register as a Developer
+              p.lead
+                | You will be asked to complete a registration process as seen on the right&period;  Simply enter your information&period;  When you&apos;ve confirmed your phone number and entered your information&comma; you&apos;re ready to go&excl;
+            .col-md-5
+              img.featurette-image.img-responsive(src='/images/fb_reg.png', alt='Generic placeholder image')
+          hr.featurette-divider
+          .row.featurette
+            .col-md-5
+              img.featurette-image.img-responsive(src='/images/fbdashboard.png', alt='Generic placeholder image')
+            .col-md-7
+              h2.featurette-heading
+                | Checkpoint 2&colon;
+                span.text-muted Creating and Saving App Info
+              p.lead
+                | At this point&comma; you must click the Create New App button&period;  Feel free to name it whatever you&apos;d like&period;  You&apos;ll then see the image to the left&comma; where you should save the App Id and App Secret to any place that you can keep safe and remember&period;  We&apos;ll need these to authenticate
+          hr.featurette-divider
+          .row.featurette
+            .col-md-9.col-md-offset-2
+              h2.featurette-heading
+                | Final Checkpoint: 
+                span.text-muted Where to go from here&quest;
+              p.lead
+                | You&apos;ll want to study the FB Graph API because we&apos;re going to be using it so that we can access the pictures&period;
+                | Also&comma; if you&apos;re not familiar with OAuth2&comma; you should study how the process goes&period;  We will be using a Nodejs module to get through this&comma; but it will be helpful to know the process.  
+                a(href = "https://developers.facebook.com/tools/") Here
+                |   are some of the tools you can use to explore the Graph API, which will alleviate your experiences in using this complex, yet robust API
+                br
+                br
+                | From what we can see, many websites just have the Facebook Like or Share buttons, but behind the scenes, many applications actually use the Facebook API to gather critical information, such as tracking the popularity of their own website.  In the same way, you can try it on yourself, using the Graph API to see what kinds of information you will be able to pull when you make an OAuth request.
+
+          hr.featurette-divider
+          // /END THE FEATURETTES
+        // /span
+      // /row
+      hr
+    script(src='js/cbpHorizontalSlideOutMenu.min.js')
+    script
+      var menu = new cbpHorizontalSlideOutMenu( document.getElementById( 'cbp-hsmenu-wrapper' ) );

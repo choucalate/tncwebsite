@@ -1,0 +1,259 @@
+extends layout3
+
+block content
+      #top_stuff.row(style='margin-top: 10%')
+        div
+          // START THE FEATURETTES
+          hr.featurette-divider
+          .row.featurette
+            .col-md-8
+              h2.featurette-heading Let&apos;s look at what we have so far 
+              p.lead
+                | We have an application that can make an authentication into Facebook&excl; Which is great&comma; but now if we add some code&comma; we can do some really awesome things&period;  That includes building the gallery&comma; using Nodejs to render our HTML Pages using a Node Rendering Engine called
+                a(href='http://www.jade-lang.com', style='color:black')  Jade 
+                | Furthermore&comma; we&apos;ll render the html pages that we&apos;ve created already into sections so that we don&apos;t have to revise the header every single time we change something&period;  Ultimately&comma; we&apos;re providing structure to our code
+            .col-md-3.col-md-offset-1
+              img.featurette-image.img-responsive(src='/images/node.png', alt='Generic placeholder image', width='100%')
+          hr.featurette-divider
+          .row.featurette
+            .col-md-8
+              h2.featurette-heading
+                | Checkpoint 1&colon;
+                span.text-muted Adding HTTP Get Routes
+              p.lead
+                | We&apos;re going to render each part of our code with Jade&comma; but first&comma; let&apos;s get some things worked out&period; So follow these set of procedures first
+          .col-md-12
+            ul.row.list-group(style='width:50%')
+              li.list-group-item sudo apt-get install html2jade
+              li.list-group-item &lpar;Run it&rpar; html2jade &lsqb;------&period;html&rsqb;
+              li.list-group-item The above converts all your files into HTML
+              li.list-group-item
+                | Order your directory like so&colon; HTML Related things go into a directory called public
+              li.list-group-item HTML and Jade files go into a directory called jade
+              li.list-group-item
+                | Leave app&period;js as is&comma; and your express-skeleton should have already ordered the rest
+            p.lead
+              | Now let&apos;s add the routes by going into app&period;js and adding all the pages that you want to have to follow this structure
+            pre.prettyprint.
+              app.get('/projects', function(req, res) {
+                  res.render('projects.jade', {
+                    title: "John | Project"
+                  });
+              });
+                                                
+            p.lead
+              | Here we&apos;re going to use Nodejs to serve each of our pages&comma; and the
+              b app&period;get 
+              | accepts all incoming get requests that have the &sol;projects&period;  So for example&comma; if your page is http&colon;&sol;&sol;www&period;john&period;com&sol;mystuff&comma; the request will go into app&period;get&lpar;&apos;&sol;mystuff&apos;&rpar;&period;  Once you&apos;ve attached one for each page&comma; we&apos;re going and have saved all your jade files in your views directory&comma; we&apos;re going to style our jade files such that we extend layouts and use blocks&period;
+            ul.row.list-group(style='width:75%')
+              li.list-group-item
+                | In your jade file&comma; take out everything you want your header to be in and cut it out
+              li.list-group-item
+                | Once it&apos;s in your clipboard&comma; create a file&comma; layout&period;jade and paste the header there
+              li.list-group-item Below everything in your layout&period;jade file&comma; put block content
+              li.list-group-item In each &quot;&period;&period;&period;&period;&quot;&period;jade file&comma; at the very top&comma; where header was&comma; add extends layout
+              li.list-group-item Below the extends layout statement&comma; put block content&period;  
+            p.lead
+              | The above will insert all your code from the layout into the &period;jade file when it gets rendered by Express&period;  You must also be careful on your tabs and spaces &lpar;using one or the other&rpar; because of the way Jade is parsed&period; Now each of your pages should be rendered by Express and turning the Jade format into a dynamic HTML&comma; which we can insert code into&period;  If that&apos;s all set up correctly&comma; then you are ready to start rendering the gallery&period;
+          br
+          hr.featurette-divider
+          .row.featurette
+            .col-md-7
+              h2.featurette-heading
+                | Checkpoint 2&colon;
+                span.text-muted Part 1&colon; Constructing the Gallery
+              p.lead
+                | We&apos;re not going to build all the front end from scratch&comma; but we will be using the same block content and layout idea that we did before&comma; and combining that with a Tympanus blog&comma; here
+                a(href='http://tympanus.net/Development/GammaGallery/', style='color:black')  Gamma Gallery
+                | Click on it and see the awesomeness that we can build and feed using javascript on both the front end and back end&period;
+            .col-md-5
+              img.featurette-image.img-responsive(src='/images/codrops.png', alt='Generic placeholder image')
+          .row.col-md-12
+            p.lead
+              | First attach the HTTP Get with app&period;get as we did before&comma; and have it render gallery&period;jade&comma; which we haven&apos;t really made yet&period;  Now we&apos;re going to create the model to store all of the images after we&apos;ve accessed &sol;auth&sol;facebook&period; But first&comma; follow the steps below
+            ul.row.list-group(style='width:75%')
+              li.list-group-item
+                | In app&period;js&comma; replace
+                pre.prettyprint.
+                  return console.log(JSON.stringify(data, null, '\t'));                  
+                | with
+                pre.prettyprint.
+                  if(err) return console.log("err: " + err);
+                  routes.saveAll(data, function(error) {
+                    if(err) return console.log(JSON.stringify(err, null, '\t'));
+                    console.log("finished");
+                    return;
+                  })
+                                                
+              li.list-group-item We&apos;re going to build our routes later&comma; but this will suffice for now
+              li.list-group-item
+                | Go to your models directory&comma; or create one if you don&apos;t have it&comma; and create the file picture&period;js
+              li.list-group-item
+                | Paste this in&colon;
+                a(href='/etc/nodestuff/picture.js', style='color:black') Picture&period;js
+              li.list-group-item
+                | Copy this code into routes&colon;
+                pre.prettyprint.
+                  exports.saveAll = function (data, cb) {
+                      var picturesData = [];
+                      for (var i  = 0; i < data.photos.data.length; i++) {
+                          picturesData.push(data.photos.data[i]);
+                      }
+                      var next = data.photos.paging.next;
+                      var finished = false;
+                      async.whilst(function () {
+                          return !finished;
+                      }, function (callback) {
+                          request.get(next, function (err, resp, body) {
+                              if (err) return callback(err);
+                              var data = JSON.parse(body).data;
+                              if (data.length == 0) {
+                                finished = true;
+                                return callback();
+                              } else {
+                                next = JSON.parse(body).paging.next;
+                                for (var i  = 0; i < data.length; i++) {
+                                  picturesData.push(data[i]);
+                                }
+                                //picturesData.push(data);
+                                return callback();
+                              } 
+                          });
+                      }, function (err) {
+                        //return console.log(JSON.stringify(picturesData, null, '\t'));
+                        savePics(picturesData, function(err) {
+                          return cb(err);
+                        });
+                      });
+                  
+                  }
+                  
+                  function savePics(data, cb) {
+                    async.each(data, function(item, callback) {
+                       picture.addPic(item, function(err, data) {
+                          callback(err, data);
+                       });
+                    }, function(err) {
+                      return cb(err);
+                    });
+                  }
+                                                    
+            p.lead
+              | the code in routes saves the &quot;next&quot; variable in the JSON of each paginated JSON page returned by Facebook&comma; makes a request to it&comma; and saves all the data&period;  It essentially puts everything into an array&comma; and when it&apos;s done&comma; it&apos;ll pass the callback &lpar;in savePics method&rpar; to the routes method&comma; which will continue as it has been
+              br
+              br
+              | In Picture&period;js&comma; which you&apos;ve pasted&comma; has a couple methods to save the pictures from the JSON data we&apos;ve been given from the routes&period;  In Picture&period;js&colon; after requiring the variables&comma; we construct a model that is able to hold our information in a MongoDB Database&period;  It uses the object modeling module&comma; mongoose&comma; which simplifies everything&period;  In MongoDB&comma; we store things in documents&comma; which is different from SQL &lpar;Structured Query Language&rpar;&period;
+              br
+              br
+              | The methods in picture are called from &quot;routes&sol;index&period;js&quot; and it&apos;ll save the picture by putting the data into the model and calling &period;save&lpar;callback&rpar;&period;  We&apos;ve put in some optimizations with
+              a(href='http://www.github.com/caolan/async') async
+              | &comma; which you can read up here&period;  But using aysnc is the heart of Nodejs&comma; and we put a bit of structure into the asynchronous nature of node&period;
+              br
+              br
+          hr.featurette-divider
+          .row.featurette
+            .col-md-5
+              img.featurette-image.img-responsive(src='/images/galleryscreen.png', alt='Generic placeholder image')
+            .col-md-7
+              h2.featurette-heading
+                | Checkpoint 2&colon;
+                span.text-muted  Part 2&colon; Finishing up the gallery
+              p.lead
+                | The image to the right&comma; is the exact same website that we&apos;re going to build&comma; and it&apos;s showcased on the demo page&period;  However&comma; while it seems quite complex&comma; we&apos;re really just reusing the code given from the Gamma Gallery Javascript&period;  That handles much of the logic and styling when we click on each image and view it&period;  Now after we&apos;ve added the headers and everything&comma; all we have to do is add the javascript code below and follow these next set of procedures
+            div
+              ul.row.list-group(style='width:75%')
+                li.list-group-item Finish the gallery&period;jade page and have the routes set up in app&period;js
+                li.list-group-item
+                  | Adjust your code so it looks like this&colon;
+                  pre.prettyprint.
+                    \napp.get('/gallery', function(req, res) {
+                      picture.findLimited(200, 0, function(err, data) {
+                        res.render('index.jade', {
+                          title: "John | Gallery",
+                          arr: data
+                        });
+                      }); 
+                    });                     
+                li.list-group-item Add the code segment below
+              br
+              pre.prettyprint.col-md-12(style='width: 75%;').
+                $(function() {
+                  var GammaSettings = {
+                    // order is important!
+                    viewport : [ {
+                    width : 1200,
+                    columns : 5
+                    }, {
+                    width : 900,
+                    columns : 4
+                    }, {
+                    width : 500,
+                    columns : 3
+                    }, {
+                    width : 320,
+                    columns : 2
+                    }, {
+                    width : 0,
+                    columns : 2
+                    } ]
+                  };
+                  
+                  Gamma.init( GammaSettings, fncallback );
+                  var data = !{JSON.stringify(arr)};
+                  var items = [""];
+                  for(var i = 0; i < data.length; i++) {
+                    items[0]+= '&lt;li&gt;&lt;div data-alt=&quot;img03&quot; data-description=&quot;&lt;h3&gt;&lt;/h3&gt;&quot; data-max-width=&quot;1800&quot; data-max-height=&quot;1350&quot;&gt;&lt;div data-src=&quot;&#39; + data[i].images[0].source + &#39;&quot;data-min-width=&quot;1300&quot;&gt;&lt;/div&gt;&lt;div data-src=&quot;&#39; + data[i].images[1].source + &#39;&quot; data-min-width=&quot;1000&quot;&gt;&lt;/div&gt;&lt;div data-src=&quot;&#39; + data[i].images[2].source + &#39;&quot; data-min-width=&quot;700&quot;&gt;&lt;/div&gt;&lt;div data-src=&quot;&#39; + data[i].images[3].source + &#39;&quot; data-min-width=&quot;300&quot;&gt;&lt;/div&gt;&lt;div data-src=&quot;&#39; + data[i].images[4].source + &#39;&quot; data-min-width=&quot;200&quot;&gt;&lt;/div&gt;&lt;div data-src=&quot;&#39; + data[i].images[5].source + &#39;&quot;data-min-width=&quot;140&quot;&gt;&lt;/div&gt;&lt;div data-src=&quot;&#39; + data[i].images[6].source + &#39;&quot;&gt;&lt;/div&gt;&lt;noscript&gt;&lt;img src=&quot;&#39; + data[i].images[6].source + &#39;&quot; alt=&quot;img03&quot;/&gt;&lt;/noscript&gt;&lt;/div&gt;&lt;/li&gt;';
+                  }
+                  var page = 0;
+                  function fncallback() {
+                    $( '#loadmore' ).show().on( 'click', function() {
+                        ++page;
+                        var newitems = items[page-1]
+                        if( page <= 1 ) {
+                        Gamma.add( $( newitems ) );
+                      }
+                      if( page === 1 ) {
+                        $( this ).remove();
+                      }
+                    });
+                  }
+                  setTimeout(function(){
+                    $('#loadmore').trigger('click');
+                  }, 1000);
+                });
+            .row.col-md-12
+              p.lead
+                | The javascript here will start the Gamma Gallery on load, and I've added a customization to delay the trigger to load the
+                | information that we've put in from jade.
+                br
+                br
+                | The "arr" passed in to render this page actually goes into the jade file and var data = !{JSON.stringify(arr)}; is where the array will be enumerated so that it can be parsed into the really long lines following items[0]+= ...
+            hr.featurette-divider
+            .row.featurette
+              .col-md-9.col-md-offset-2
+                h2.featurette-heading
+                  | Final Checkpoint: 
+                  span.text-muted Check out what you've built!
+                p.lead
+                  | Run your app with
+                  b  node app 
+                  | and go to
+                  a(href='http://localhost:3000', style='color: black;')  http://localhost:3000
+                  | And walla! Access "/gallery" and all of your routes to make sure they work
+                  br
+                  br
+                  | If you've missed a step, feel free to click
+                  a(href='etc/demo-node-final.zip')  here 
+                  | and download everything again.  The NodeJS part will take a little longer to understand than the front end, but know that it's all about HTTP.  We accept HTTP using app.get(), we make HTTP connecting to Facebook, and much more goes on than we actually realize. The next step is to deploy it to Heroku, so sta tuned!
+            hr.featurette-divider
+            //
+               /END THE FEATURETTES 
+            //
+              /span
+            //
+              /span
+            //
+              /row
+            hr
+
+

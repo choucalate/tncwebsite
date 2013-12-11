@@ -1,0 +1,51 @@
+extends layout3
+
+block content
+      #top_stuff.row(style='margin-top: 10%')
+        div
+          p.pull-right.visible-xs
+            button.btn.btn-primary.btn-xs(type='button', data-toggle='offcanvas') Toggle nav
+          .jumbotron
+            h2 Nodejs&comma; MongoDb&comma; HTML5&comma; and more
+            p Step by Step Source Code Included
+          // START THE FEATURETTES
+          hr.featurette-divider
+          .row.featurette
+            .col-md-7
+              h2.featurette-heading Get Ready to Build Your Own Customizable Website 
+              p.lead
+                | Some prerequisites&colon; Must be running on a Linux-based machine&comma; have some kind of background in web&sol;serverside development&comma; and have an interest in programming.  Don't worry, even though learning server-side programming is slightly different from what you may be used to, Javascript is simple to catch on to.  You'll be able to start constructing your own servers in no time at all!
+                br
+                br
+                | But don't fuss too much about the prerequisites.  Simply get excited! You're going to be doing some logistical set-ups, but feel free to just experiment with what each step teaches you, you don't have to follow it step by step.  I have source code in each step so that even if you get lost, you can find your way back.
+            .col-md-3.col-md-offset-2
+              img.featurette-image.img-responsive(src='/images/html5.png', alt='Generic placeholder image', style='width: 100%')
+          hr.featurette-divider
+          .row.featurette
+            .col-md-11(style ='text-align: right')
+              h2.featurette-heading
+                | Who Am I?  
+                span.text-muted Just your typical Nodejs Serverside Programmer 
+              p.lead
+                | I started with designing basic websites in HTML5, CSS3, and Javascript for my Dad's company, 
+                a(href ='http://4seasonchem.com') Four Seasons Chemicals 
+                | It wasn't until much later until I discovered my passion for designing back-end systems that would be really fun to play around with.  At first, I was completely aloof to this concept of a server side that would serve data to the front end, but now it feels like an everyday habit.  Read more about me here
+                a(href ='/about')   About Page
+          hr.featurette-divider
+          .row.featurette
+            .col-md-7
+              h2.featurette-heading
+                | Want to see what you can build in this tutorial?
+              p.lead
+                | Click 
+                a(href='/') Here!
+                br
+                | When I started learning Nodejs, there were plenty of tutorials out there, but few had the integration with Node, Jade, Mongo, all combined into one nice cohesive mashup.  Even if they did, they weren't using the most modern engines for Node and so I had to relearn plenty of things.  However, this tutorial will teach you how you can accomplish just that
+                br
+                br
+                | Also, I imagine that as an up and coming programmer interested in Back-end development, you want to see how you can integrate with API's.  This tutorial will teach you how you can integrate your application with Facebook in no time, which will be immensely helpful when you want to do hackathon projects or simply create things on your own.  There are so many ways that you'll be able to extrapolate the skills that you've learned here, so GET READY!
+          hr.featurette-divider
+          // /END THE FEATURETTES
+        // /span
+      // /row
+      hr

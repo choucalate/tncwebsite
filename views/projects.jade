@@ -1,0 +1,51 @@
+extends layout2
+
+block content
+    .container(style='background:white')
+      .row
+        .row.col-md-10.col-md-offset-1
+          .row.col-md-12
+            h2 Some of my projects&period;&period;&period;
+          hr.featurette-divider
+          .row
+            .col-md-3
+              a(href='https://npmjs.org/package/s3logparser')
+                img(src='/images/npm.png', style='padding-top:20px; max-width:200px')
+                br
+                a(href='https://npmjs.org/static/npm.png') pic source
+            .col-md-9
+              p.text-muted(style='font-size: 2em')  S3 Log Parser 
+              p.lead
+                | I built a Nodejs module that utilizes the beauty of Nodejs streams that makes a request to the S3 server requesting access log files&comma; parses the files into Javascript Object Notation &lpar;JSON&rpar;&comma; and pipes them into a response&period;  It&apos;s licensed under the BSD-2-Clause as part of Node Packaging Module
+                a(href='http://npmjs.org')  &lpar;NPM&rpar;
+              // some hobbies I enjoy- go, guitar, piano, golf, swimming, boxing
+          hr.featurette-divider
+          .row
+            .col-md-9
+              p.text-muted(style='font-size: 2em')  Vine Wheel
+              p.lead
+                | Part of my CSE 110 &lpar;Software Engineering&rpar; Spring &apos;13 project&comma; where our team built an android application so that one could &quot;creatively&quot; search for wine information using a selection wheel&comma; enable social networking&comma; utilize google map integration to find wind places&comma; and much more&period;  As the Software Development lead&comma; I helped build many features for the application as well as the serverside&comma; which is built in PHP and NodeJs
+              br
+              | Android Code&colon;
+              a(href='https://github.com/Brimizer/GILSPWine')  Here&excl; 
+              | &comma; Node Code&colon;
+              a(href='https://github.com/choucalate/winesnode')  Here&excl; 
+              // some hobbies I enjoy- go, guitar, piano, golf, swimming, boxing
+            img.col-md-3(src='/images/vine.png', style='padding-top:20px; max-width:250px')
+          hr.featurette-divider
+          .row
+            .col-md-3
+              img(src='/images/pianoicon.png', style='padding-top:20px; max-width:200px')
+              br
+              a(href='http://wp.appadvice.com/wp-content/uploads/2010/03/PianistPro-Icon.png') pic source
+            .col-md-9
+              p.text-muted(style='font-size: 2em')  Vine Wheel
+              p.lead
+                | Part of my CSE 110 &lpar;Software Engineering&rpar; Spring &apos;13 project&comma; where our team built an android application so that one could &quot;creatively&quot; search for wine information using a selection wheel&comma; enable social networking&comma; utilize google map integration to find wind places&comma; and much more&period;  As the Software Development lead&comma; I helped build many features for the application as well as the serverside&comma; which is built in PHP and NodeJs
+              br
+              | Android Code&colon;
+              a(href='https://github.com/choucalate/music')  Here&excl; 
+              | &comma;  Web Code
+              a(href='https://github.com/choucalate/tncwebsite')  Here&excl; 
+              // some hobbies I enjoy- go, guitar, piano, golf, swimming, boxing
+    // /container

@@ -1,0 +1,60 @@
+extends layout3
+
+block content
+      #top_stuff.row(style='margin-top: 10%')
+        div
+          // START THE FEATURETTES
+          hr.featurette-divider
+          .row.featurette
+            .col-md-8
+              h2.featurette-heading Home Stretch&excl; 
+              p.lead
+                | We&apos;re almost there&comma; building a complete website backed by Nodejs&comma; stored information with MongoDB&comma; and OAuth with Facebook&excl;  We&apos;ve also built an awesome gallery that works like a charm with very minimal code&period;  Now&comma; the last part is simply deploying it so that the website is live and everyone can see it&excl;
+            .col-md-3.col-md-offset-1
+              img.featurette-image.img-responsive(src='/images/heroku.jpg', alt='Generic placeholder image', width='100%')
+          hr.featurette-divider
+          .row.featurette
+            .col-md-12
+              h2.featurette-heading
+                | Checkpoint 1&colon;
+                span.text-muted Heroku&apos;s done everything
+              p.lead
+                | Heroku has actually pretty much built a fairly comprehensive tutorial&comma; and it&apos;s the same procedure I would&apos;ve gone through to deploy my website with Heroku when I&apos;ve built my server with Nodejs&period;  So follow the tutorial
+                a(href='https://devcenter.heroku.com/articles/getting-started-with-nodejs') here
+                | &period;  But we&apos;ve actually added a couple new things&comma; so once you&apos;ve finished the tutorial&comma; come back here and we&apos;re going to add the MongoDB capability that we need in order for the gallery to work perfectly&period;
+          .row.featurette
+            .col-md-3
+              img.featurette-image.img-responsive(src='/images/mongo.png', alt='Generic placeholder image', width='100%')
+            .col-md-9
+              h2.featurette-heading
+                | Checkpoint 2&colon;
+                span.text-muted Connecting with MongoDB
+              p.lead
+                | Now we have to go to our dashboard&comma; head over to
+                a(href='https://dashboard.heroku.com/apps') https&colon;&sol;&sol;dashboard&period;heroku&period;com&sol;apps
+                | and login&period;  You should see the app the you just created&comma; though it probably doesn&apos;t work yet&period;  Then click on your current application&comma; and in the next page&comma; click &quot;New Add-ons&period;&quot;
+            p.lead
+              | In this long list of add-ons&comma; feel free to add whatever you like&comma; but for the website&apos;s sake&comma; scroll to MongoLab&comma; and add it for your app specifically&period;  Note that we&apos;ve actaully already added the capability to integrate with MongoLab from the way that we established a connection to it here-
+            pre.prettyprint.
+               var uristring = process.env.MONGOLAB_URI;              
+            p.lead
+              | We&apos;re finally ready to make our application live with MongoDB capabilities&comma; Go to yourapp&period;herokuapp&period;com
+          .row.featurette
+            .col-md-9.col-md-offset-1
+              h2.featurette-heading
+                | Final Checkpoint&colon;
+                span.text-muted Launching and finishing up
+              p.lead
+                | Now if you open the gallery page&comma; everything&apos;s empty because we haven&apos;t accessed the facebook page&period;  Head over to &quot;yourapp&period;herokuapp&period;com&sol;auth&sol;facebook&quot;&comma; this should start the process to request the information from facebook&period;  If you have less than 1000 photos of yourself&comma; this shouldn&apos;t take longer than a minute&period;
+              p.lead
+                | Now if you go to your &quot;&sol;gallery&quot; page&comma; everything should be loaded up and ready to go&period;  There&apos;s still so much that you can add to your personal site&comma; including a dashboard of your own&period;  This is extremely important because editting your &quot;Jade&quot; pages is a pain&comma; it would be much easier if the Jade page simply read from a MongoDB instance and placed that on the page&period;  There are plenty examples of Node-based blogs&comma; such as
+                a(href='http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/')  this
+              p.lead
+                | Furthermore&comma; it&apos;s much more impressive to scale up the number of &quot;dynos&sol;processes&quot; your application is built on if you expand to something larger&period;  1 Dyno really isn&apos;t impressive and your web application doesn&apos;t actually run very fast&period;  If you get many page hits&comma; what you&apos;ll end up getting is a very large problem with latency issues&period;  But now it&apos;s all up to you on how you want to customize your site&excl; Feel free to email me if you liked this tutorial or want to tell me how this can be improved&excl;
+          br
+          hr.featurette-divider
+          // /END THE FEATURETTES
+        // /span
+        // /span
+      // /row
+      hr

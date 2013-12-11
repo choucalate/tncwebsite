@@ -1,0 +1,42 @@
+extends layout3
+
+block content
+      #top_stuff.row(style='margin-top: 10%')
+        div
+          // START THE FEATURETTES
+          hr.featurette-divider
+          .row.featurette
+            .col-md-12
+              h2.featurette-heading What's wrong with Content Management Systems?
+              a(href = "http://designlovr.com/why-a-cms-is-not-always-the-best-choice/") CMS Review
+              p.lead
+                | Today, many people take advantage of the easy-to-use Content Management Systems (CMS) like Wordpress, Drupal, or Joomla.  But what's wrong with that?  The author of this article mentions the inability of the website to grow, as Search Engine Optimizations often become more difficult to actually implement in a site that you don't have as much control over as one you would like.  Moreover, as a Web Developer who takes pride in writing from scratch, this may be a bit biased, but I believe that for any website to scale, it requires customization.  That means, when there are more and more people accessing your site, and not just like 500 or 1000 viewers, but way more, than it's time to build your own website.  Why? There's always a reason to manage the serverside aspect of your web application, be it tracking the IP addresses of the people that are accessing your page so that you're not getting a (Distributed Denial of Service), or if you have a login system, you can actually construct an algorithm that will generate actionable data.   This article also argues that CMS's are not always the safest ways to manage your data, and as your user base continues to grow, having a security flaw is a huge detriment to business. 
+                br
+                br
+                | This is not to say that CMS's are always bad.  In particular, as this article argues, blogs, news sections, and things where you have to manage a bunch of data, may be easier to manage with a web interface and dashboard that is already built.  However, managing this type of data isn't always the only thing one would build, and that's when you want to build from scratch.  Being able to get experience in developing the full stack, front end and back end, gives one the opportunity to add optimizations, deal with security flaws head on, and experience the beauty in developing a great server-side is all part of building from scratch.
+                br
+                br
+                | Ultimately, the leading websites will never use CMS to manage all of their content for the reasons stated above- speed, scalability, and reliability.  While CMS's will continually be developed and improved on, it is severely limited by the way it is simply built.  Each CMS will have to reverse-proxy each request for each server, which not only puts an incredible load on the CMS itself, but also that of each website that it serves.  If one were developing a website with the intention of making money, one essential necessity, is that the website be scalable to thousands and even millions of users.  However, being unable to grab the data from a programmatical standpoint puts an obstacle for the person to scale to more users, optimize for search engines, and much more.  And lastly, how would one be able to tell if one's website is experiencing technical difficulties if the log files only go to a CMS?  The end result is that all of the valuable data left on Wordpress, if accessed by a 3rd party, would be completely unknown to the developer.  
+          hr.featurette-divider
+          
+          .row.featurette
+            .col-md-12
+              h2.featurette-heading PHP vs Nodejs
+              p.lead
+                | As the article states, PHP was an amazing tool developed in C++ in the older programming days; however, in the modern world, PHP is too slow.  There are many frameworks like CakePHP and CodeIgniter, which I've personally used, that makes PHP more user friendly, but there is no way to optimize PHP over Nodejs. Sure, Facebook has optimized PHP with HPHP, the PHP compiler that makes it super fast, but the conventional PHP out there is still lacking.  And I'm going to explain the 3 aspects in which I believe that PHP is lacking in comparison to Node.  
+                br
+                br
+                | The first is speed.  According to the article, PHP does not have the same non-blocking I/O that Node has.  What does that mean? It means Node can way outperform PHP because it doesn't have to wait for other processes to finish, instead it uses multiple threads to complete the task at hand, and it does that efficiently.  It retrieves data incredibly fast, and pipes it right out, which is why the development in Nodejs streams is so popular.  The way that input streams can be so quickly piped into the output allows Node to transcend far above PHP.
+                br
+                br
+                | Furthermore, security flaws are a huge problem that can be much robustly addressed when using Node.  SQL-injections are so typical in a PHP environment that it's not even funny.  Nodejs developers have built the platform such that threats such as these injections are a thing of the past.  The unmodular way that PHP combines everything together leaves web applications that use these open source technologies to be completely unaware if something is left in an inconsistent state.  However, Nodejs may be harder to implement, since it's not as much in the Application Layer as PHP is.  Nodejs can still manage Transmission Control Protocols, and much more.  
+                br
+                br
+                | Lastly, the potential for the growth of Node far exceeds that of PHP.  The code base is exponentially growing with Nodejs, with frameworks such as Meteor, Derbyjs, and others being built that are based off of Nodejs that almost everything is done in Javascript.  With everything being so consistent in the Javascript library, there will continue to be developments in this field, leading to its growth.  As a contributer to NPM, having built a module that's been released, I realize the enormous code base that node has built.  With its modular coupling, one can easily incorporate dozens and dozens of modules into a Node application.  There are also amazing contributions in the newest technologies, such as Socket.io, which allows one to construct real-time applications using Nodejs, which is amazing, as well as a superior wrapping library for databases such as MongoDB, and even Structured Query Language, which PHP was originally made to be used with.  Now a days, web servers are also much more friendly to Nodejs, as you saw in the Heroku deployment, than older languages that are becoming more and more outdated.  My recommendation is that you program toward the future; Nodejs is where the development is happening, and you should hop on that train.  
+          hr.featurette-divider
+          hr.featurette-divider
+          // /END THE FEATURETTES
+        // /span
+        // /span
+      // /row
+      hr
