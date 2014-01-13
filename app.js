@@ -98,7 +98,7 @@ app.configure('production', function () {
 // Routes
 
 app.get('/', function(req, res) {
-  res.render('demo.jade', {
+  res.render('tnc.jade', {
  title: "John | Home"
   })
 });
