@@ -134,6 +134,7 @@ app.post('/account', ensureAuthenticated, users.userValidations, users.update);
 app.get('/dashboard', ensureAuthenticated, users.dashboard);
 app.get('/logout', users.logout);
 app.get('/users', ensureAuthenticated, users.list); // for illustrative purposes only
+app.get('/profile', ensureAuthenticated, users.myprofile)
 app.all('*', welcome.not_found);
 
 // Start Server w/ DB Connection

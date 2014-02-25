@@ -4,6 +4,7 @@ var mongoose = require('mongoose')
 
 // Get login page
 exports.login = function(req, res){
+  console.log("req.query.postauth in exports.login= " + req.query.postAuthDestination);
   res.render('users/login', { postAuthDestination : req.query.postAuthDestination || "" });
 }
 
@@ -233,4 +234,8 @@ exports.process_password_reset = function(req, res, next){
       return res.redirect("/");
     }
   });
+}
+
+exports.myprofile = function(req, res, next) {
+  res.render('users/profile');
 }
