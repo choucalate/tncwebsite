@@ -38,38 +38,46 @@ html(lang='en-US')
     // /.navbar
     .container
       .row
-        .col-md-12
+        .col-md-4
+          img(src='/images/john.jpg')
+        .col-md-4
           h2.profileName
-            p(style='margin-top: 50px') Welcome to the Town And Country Learning Center
+            p(style='margin-top: 270px') John Chou
       br
       .col-lg-12
         ol.breadcrumb
           li
             a(href='#') About
           li
-            a(href='#') What we make
+            a(href='#') My Jams
+          li.active My Badges
       // body content
       .row(style="background-color:white; margin-bottom:20px; border-radius: 10px;")
         .col-md-12
           .divider
           h2
             strong About
-          p We are part of the UCSD Global Ties- Town and Country Learning Center Project
-          p Students work with the Learning Center at the Town and Country community housing complex to provide imaginative and innovative technological devices, tools, and interfaces to help children expand their horizons.
+          p I am&period;&period;&period;&period;
+          p Age&colon;
+          p Sex&colon;
+          p Adress
       .row(style="background-color:white; margin-bottom:20px; border-radius: 10px;")
         .col-md-12
           .divider
           h2
-            strong What we make
+            strong My Jams
           .row
-            .col-md-11.col-md-offset-1
-              p We hack Android and Web Projects
-              p Our Android project includes the TnC Music Studio, which engages students in making their own music by using a piano and several awesome beats
-              p Our Web Project (this) is for students to learn how to create their own social identity through music
+            .col-md-3.col-md-offset-1
+              iframe(width='250', height='200', src='http://www.youtube.com/embed/eZxo9mrWgR8', frameborder='0', allowfullscreen='')
+            .col-md-3.col-md-offset-1
+              iframe(width='250', height='200', src='http://www.youtube.com/embed/p9mmhh_wvkA', frameborder='0', allowfullscreen='')
+            .col-md-3.col-md-offset-1
+              iframe(width='250', height='200', src='http://www.youtube.com/embed/eZxo9mrWgR8', frameborder='0', allowfullscreen='')
+      .row(style="background-color:white; margin-bottom:20px; border-radius: 10px;")
         .col-md-12
           .divider
           h2
-            strong Some of our example badges
+            strong My Badges
           .row
             .col-md-3.col-md-offset-1
               tbody
@@ -79,7 +87,22 @@ html(lang='en-US')
               img(src='/images/vinyl.jpg', style='width:80%')
             .col-md-3.col-md-offset-1
               img(src='/images/dynamite.jpg', style='width:80%')
-
+    // end login-form
+  script(src='js/jquery.js')
+  script(src='js/bootstrap-transition.js')
+  script(src='js/bootstrap-alert.js')
+  script(src='js/bootstrap-modal.js')
+  script(src='js/bootstrap-dropdown.js')
+  script(src='js/bootstrap-scrollspy.js')
+  script(src='js/bootstrap-tab.js')
+  script(src='js/bootstrap-tooltip.js')
+  script(src='js/bootstrap-popover.js')
+  script(src='js/bootstrap-button.js')
+  script(src='js/bootstrap-collapse.js')
+  script(src='js/bootstrap-carousel.js')
+  script(src='js/bootstrap-typeahead.js')
+  script(src='js/vendor/bootstrap.min.js')
+  script(src='js/main.js')
   script(type='text/javascript')
     $(document).ready(function() {
     $('#register').click(function() {

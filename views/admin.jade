@@ -1,0 +1,89 @@
+!!! 5
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7  
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8  
+//if IE 8
+  html.no-js.lt-ie9  
+// [if gt IE 8] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title SCF admin
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='stylesheets/bootstrap-responsive.css', rel='stylesheet')
+    link(rel='stylesheet', href='stylesheets/bootstrap.css')
+    style
+      body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+      }
+    link(rel='stylesheet', href='stylesheets/bootstrap-responsive.min.css')
+    link(rel='stylesheet', href='stylesheets/admin-page.css')
+    script(src='js/vendor/modernizr-2.6.2-respond-1.1.0.min.js')
+  body
+    //if lt IE 7
+      p.chromeframe
+        | You are using an
+        strong outdated
+        | browser. Please
+        a(href='http://browsehappy.com/') upgrade your browser
+        | or
+        a(href='http://www.google.com/chromeframe/?redirect=true') activate Google Chrome Frame
+        | to improve your experience.
+    // This code is taken from http://twitter.github.com/bootstrap/examples/hero.html
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand(href='#') Admin Page
+          .nav-collapse.collapse
+            ul.nav
+              li.active
+                a(href='/') Home
+          // /.nav-collapse
+    .container-fluid
+      .row-fluid
+        .span10.offset1
+          a(href='/admin/events') manage events
+          a(href='/admin/prayerreq') manage prayer requests
+          h3 Event Manager
+          form.form-horizontal(method='post')
+            .control-group
+              label.control-label(for='inputTitle') Title: 
+              .controls
+                input#inputEmail(type='text', placeholder='Event Title', name='event-title')
+            .control-group
+              label.control-label(for='inputDate') Date: 
+              .controls
+                input#inputPassword(type='date', placeholder='i.e. 4/1/13', name='event-date')
+            .control-group
+              label.control-label(for='inputDate') Content: 
+              .controls
+                textarea(rows='10', style='width: 500px', name='event-content')
+            button.btn(type='submit') Add Event
+        // body content
+    a.btn(href='#myModal', role='button', data-toggle='modal', data-target='#myModal') See Preview
+    #myModal.modal.hide.fade
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+        h3 Modal header
+      .modal-body
+        p One fine body…
+      .modal-footer
+        a.btn(href='/emaillist') Go to email
+        a.btn(href='#') Close
+        a.btn.btn-primary(href='#') Save changes
+    hr
+    footer
+      p hooray
+    // /container
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+    script(src='js/vendor/bootstrap.min.js')
+    script(src='js/main.js')

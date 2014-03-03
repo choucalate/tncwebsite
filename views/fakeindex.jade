@@ -1,0 +1,27 @@
+extends fakelayout
+
+block content
+  table
+    thead
+      tr
+        th First Name
+        th Last Name
+        th Email
+        th &nbsp;
+    tbody
+      each user in users
+        tr
+          td #{user.('first_name').value}
+          td #{user.('last_name').value}
+          td #{user.('email').value}
+          td
+            form(action="/", method ='post')
+              input(id='_method, type="hidden', name ='_method', value ='delete')
+              input(id="email", name ="email", type = "hidden", value = "#{user.('email').value}")
+              input(type="submit", value ="Remove User", data-transition="fade", data-theme='c')
+  h2 New User
+  form(action ="/", method ="post")
+    input(id='email', type='text', value ='', placeholder='foo bar.com', name ='email')
+    input(id='first_name', type='text', value='', placeholder='First Name', name ='first_name')
+    input(id='last_name', type='text', value ='', placeholder='Last Name', name='last_name')
+    input(type='submit', value='Add User')
