@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Node.js (Express3 MongoDB Passport Bootstrap) Demo
 
 This is a simple boiler-plate MVC Node.js app with authentication and user account management to be used as a starting point for new apps.
@@ -42,3 +43,9 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+=======
+tncwebsite
+==========
+
+tncwebsite
+>>>>>>> b60e9b9b02cb2049418bfbe91e0a2dac7a1ff997
