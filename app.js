@@ -14,7 +14,8 @@ var express = require('express')
   , passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
   , expressValidator = require('express-validator')
-  , app = express();
+  , app = express()
+  , port = (process.env.PORT || 3000); ;
 
 app.engine('ejs', engine);
 app.set('port', process.env.PORT || 3000);
@@ -150,6 +151,6 @@ app.all('*', welcome.not_found);
 //     console.log('Express server listening on port ' + app.get('port'));
 //   });
 // });
-app.listen(3000, function () {
-    console.log("Express server listening on port %d in %s mode", 3000, app.settings.env);
+app.listen(port, function () {
+    console.log("Express server listening on port %d in %s mode", port, app.settings.env);
 });
