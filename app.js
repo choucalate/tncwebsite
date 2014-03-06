@@ -14,8 +14,6 @@ var express = require('express')
   , passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
   , expressValidator = require('express-validator')
-  , mailer = require('express-mailer')
-  , config = require('./config')
   , app = express();
 
 app.engine('ejs', engine);
@@ -46,17 +44,7 @@ app.use(function(req, res, next){
 
 // Mailer Setup
 
-mailer.extend(app, {
-  from: 'no-reply@example.com',
-  host: 'smtp.mandrillapp.com', // hostname
-  // secureConnection: true, // use SSL
-  port: 587, // port for Mandrill
-  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
-  auth: {
-    user: config[app.get('env')].MANDRILL_USERNAME,
-    pass: config[app.get('env')].MANDRILL_API_KEY
-  }
-});
+
 
 // Routing Initializers
 
