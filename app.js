@@ -31,6 +31,9 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+var uristring = process.env.MONGOHQ_URL ||
+                process.env.MONGOLAB_URI ||
+                'mongodb://localhost/nodedemo';
 // Helpers
 
 app.use(function(req, res, next){
@@ -63,11 +66,22 @@ if ('development' == app.get('env')) {
 
 // Database Connection
 
-if ('development' == app.get('env')) {
-  mongoose.connect('mongodb://localhost/nodedemo');
-} else {
-  // insert db connection for production
-}
+mongoose.connect(uristring, function(err, res) {
+  if(err) {
+     console.log("ERROR occurred connecting to :" + uristring + '. ' + err);
+  } else {
+     console.log("MONGO connected! here: " + uristring);
+
+  }
+});
+
+//the db connection on error or opened 
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback() {
+  console.log("MONGO open!");
+});
 
 // Authentication
 
@@ -129,10 +143,13 @@ app.all('*', welcome.not_found);
 
 // Start Server w/ DB Connection
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  http.createServer(app).listen(app.get('port'), function(){
-    console.log('Express server listening on port ' + app.get('port'));
-  });
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function callback () {
+//   http.createServer(app).listen(app.get('port'), function(){
+//     console.log('Express server listening on port ' + app.get('port'));
+//   });
+// });
+app.listen(3000, function () {
+    console.log("Express server listening on port %d in %s mode", 3000, app.settings.env);
 });
