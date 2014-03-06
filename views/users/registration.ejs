@@ -1,0 +1,77 @@
+<% layout(layoutPath) %>
+              <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                  <ul class="nav nav-sidebar">
+                    <li class="active"><a>Registration</a></li>
+                    <li><a href="/login">Login</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                      <% include ../shared/alert_messages.ejs %>
+                  <h1 class="page-header">Registration</h1>
+                  <div class="row placeholders">
+                    <div class="col-md-9 col-md-offset-1" style = "margin-bottom: 10px">
+                      <h4>New User Registration </h4>
+                    </div>
+                    <div class="col-md-9 col-md-offset-1">
+                      <form class="form-horizontal" role="form" method ="post" action = "/register">
+                        <div class ="form-group">
+                          <label for ="myusername" class ="col-sm-2 control-label">Username</label>
+                          <div class ="col-sm-10">
+                            <input name = "username" type ="text" class ="form-control" id ="myusername" placeholder="Your username"> 
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                          <div class="col-sm-10">
+                            <input name ="password" type="password" class="form-control" id="inputPassword3" placeholder="*********">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-2 control-label">Re-enter Password</label>
+                          <div class="col-sm-10">
+                            <input name ="passwordConfirmation" type="password" class="form-control" id="inputPassword3" placeholder="*********">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                          <div class="col-sm-10">
+                            <input name ="email" type="email" class="form-control" id="inputEmail3" placeholder="jychou@ucsd.edu">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputEmail3" class="col-sm-2 control-label">First Name:</label>
+                          <div class="col-sm-10">
+                            <input name = "firstName" type="text" class="form-control" id="inputEmail3" placeholder="John Chou">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputEmail3" class="col-sm-2 control-label">Last Name:</label>
+                          <div class="col-sm-10">
+                            <input name = "lastName" type="text" class="form-control" id="inputEmail3" placeholder="John Chou">
+                          </div>
+                        </div>
+                        <div class ="form-group">
+                          <label for ="myage" class ="col-sm-2 control-label">Age</label>
+                          <div class ="col-sm-10">
+                            <input name = "age" type ="text" class ="form-control" id ="myage" placeholder="19"> 
+                          </div>
+                        </div>
+                        <div class ="form-group">
+                          <label for ="mygender" class ="col-sm-2 control-label">Gender</label>
+                          <div class ="col-sm-10">
+                            <input name="gender" type ="text" class ="form-control" id ="mygender" placeholder="Male or Female"> 
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-offset-1 col-sm-10">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <% include ../shared/footer %>
+                </div>
+              </div>
+            

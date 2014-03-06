@@ -1,157 +1,80 @@
- <% layout(layoutPath) -%>
-
-       <!-- Forms
-      ================================================== -->
-      <div class="bs-docs-section">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="page-header">
-              <h1 id="forms">Login</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Town and Country</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel='stylesheet' href='/css/bootstrap.min.css' /> -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <!-- <link rel='stylesheet' href='/css/bootstrap-responsive.min.css' /> -->
+    <!-- <link rel='stylesheet' href='/css/style.css' /> -->
+    <script src="/js/jquery-1.9.1.js"></script>
+    <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+  </head>
+  <body>
+    <% include ../shared/navigation.ejs %>
+    <% include ../shared/alert_messages.ejs %>
+    <div class="bs-docs-featurette">
+      <div class="container">
+        <% include ../shared/header %>
+      </div>
+    </div>
+    <div class ="bs-docs-featurette">
+    <div class ="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="page-header">
+      <h1 > Welcome!</h1>
+    </div>
+    <div class="container">
+      <div class="col-lg-12">
+        <ol class="breadcrumb">
+          <li><a href="#">About</a></li>
+          <li><a href="#">What we make</a></li>
+        </ol>
+      </div>
+      <!-- body content-->
+      <div style="background-color:white; margin-bottom:20px; border-radius: 10px;" class="row">
+        <div class="col-md-12">
+          <div class="divider"></div>
+          <h2><strong>About</strong></h2>
+          <p>We are part of the UCSD Global Ties- Town and Country Learning Center Project</p>
+          <p>Students work with the Learning Center at the Town and Country community housing complex to provide imaginative and innovative technological devices, tools, and interfaces to help children expand their horizons.</p>
+        </div>
+      </div>
+      <div style="background-color:white; margin-bottom:20px; border-radius: 10px;" class="row">
+        <div class="col-md-12">
+          <div class="divider"></div>
+          <h2><strong>What we make</strong></h2>
+          <div class="row">
+            <div class="col-md-11 col-md-offset-1">
+              <p>We hack Android and Web Projects</p>
+              <p>Our Android project includes the TnC Music Studio, which engages students in making their own music by using a piano and several awesome beats</p>
+              <p>Our Web Project (this) is for students to learn how to create their own social identity through music</p>
             </div>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="well">
-              <form class="bs-example form-horizontal">
-                <fieldset>
-                  <legend>Legend</legend>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                    <div class="col-lg-10">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> Checkbox
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-                    <div class="col-lg-10">
-                      <textarea class="form-control" rows="3" id="textArea"></textarea>
-                      <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-lg-2 control-label">Radios</label>
-                    <div class="col-lg-10">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                          Option one is this
-                        </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                          Option two can be something else
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">Selects</label>
-                    <div class="col-lg-10">
-                      <select class="form-control" id="select">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                      <br>
-                      <select multiple="" class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                      <button class="btn btn-default">Cancel</button>
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                  </div>
-                </fieldset>
-              </form>
-            </div>
-          </div>
-          <div class="col-lg-4 col-lg-offset-1">
-
-              <form class="bs-example">
-                <div class="form-group">
-                  <label class="control-label" for="focusedInput">Focused input</label>
-                  <input class="form-control" id="focusedInput" type="text" value="This is focused...">
-                </div>
-                <div class="form-group">
-                  <label class="control-label" for="disabledInput">Disabled input</label>
-                  <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
-                </div>
-                <div class="form-group has-warning">
-                  <label class="control-label" for="inputWarning">Input warning</label>
-                  <input type="text" class="form-control" id="inputWarning">
-                </div>
-                <div class="form-group has-error">
-                  <label class="control-label" for="inputError">Input error</label>
-                  <input type="text" class="form-control" id="inputError">
-                </div>
-                <div class="form-group has-success">
-                  <label class="control-label" for="inputSuccess">Input success</label>
-                  <input type="text" class="form-control" id="inputSuccess">
-                </div>
-                <div class="form-group">
-                  <label class="control-label" for="inputLarge">Large input</label>
-                  <input class="form-control input-lg" type="text" id="inputLarge">
-                </div>
-                <div class="form-group">
-                  <label class="control-label" for="inputDefault">Default input</label>
-                  <input type="text" class="form-control" id="inputDefault">
-                </div>
-                <div class="form-group">
-                  <label class="control-label" for="inputSmall">Small input</label>
-                  <input class="form-control input-sm" type="text" id="inputSmall">
-                </div>
-                <div class="form-group">
-                  <label class="control-label">Input addons</label>
-                  <div class="input-group">
-                    <span class="input-group-addon">$</span>
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Button</button>
-                    </span>
-                  </div>
-                </div>
-              </form>
-
+        <div class="col-md-12">
+          <div class="divider"></div>
+          <h2><strong>Some of our example badges</strong></h2>
+          <div class="row">
+            <img src="/img/midimau5.jpg" style= "max-width:300px" class ="col-md-2 col-md-offset-1">
+            <img src="/img/vinyl.jpg" style= "max-width:300px" class="col-md-2 col-md-offset-1">
+            <img src="/img/dynamite.jpg" style= "max-width:300px" class="col-md-2 col-md-offset-1">
           </div>
         </div>
       </div>
+    </div>
+    <div class ="container">
+      <% include ../shared/footer %> 
+    </div>
+  </body>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.10.1.min.js"><\/script>')</script>
 
-<!--    <p>Welcome! <a href="/register">Create an account</a> or login below:</p>
-
-<form action="/login" method="post">
-    <div>
-        <label>Username:</label>
-        <input type="text" name="username"/>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password"/>
-    </div>
-    <div>
-      <button class="btn">Log In</button>
-    </div>
-</form>
-<a href="/reset_password">Forgot your password?</a> -->
+    <script src="js/bootstrap.min.js"></script>
+</html>

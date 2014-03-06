@@ -30,7 +30,7 @@ exports.authenticate = function(req, res, next) {
 
 // Get registration page
 exports.register = function(req, res){
-  res.render('users/new', {user: new User({})});
+  res.render('users/registration', {user: new User({})});
 }
 
 // Log user out and redirect to home page
@@ -41,7 +41,7 @@ exports.logout = function(req, res){
 
 // Account page
 exports.account = function(req,res){
-  res.render('users/edit');
+  res.render('users/account');
 }
 
 // List all users
@@ -95,6 +95,7 @@ exports.update = function(req, res, next){
 
 // Create user
 exports.create = function(req, res, next){
+  console.log("JSON: " + JSON.stringify(req.body, null, '\t'))
   var newUser = new User(req.body);
   newUser.save(function(err, user){
     
@@ -103,7 +104,7 @@ exports.create = function(req, res, next){
     if (err && err.code == 11000){
       var duplicatedAttribute = err.err.split("$")[1].split("_")[0];
       req.flash('error', "That " + duplicatedAttribute + " is already in use.");
-      return res.render('users/new', {user : newUser, errorMessages: req.flash('error')});
+      return res.render('users/registration', {user : newUser, errorMessages: req.flash('error')});
     }
     if(err) return next(err);
     
@@ -136,7 +137,7 @@ exports.userValidations = function(req, res, next){
       req.flash('error', e.msg);
     });
     // Create handling if errors present
-    if (creatingUser) return res.render('users/new', {user : new User(req.body), errorMessages: req.flash('error')});
+    if (creatingUser) return res.render('users/registration', {user : new User(req.body), errorMessages: req.flash('error')});
     // Update handling if errors present
     else return res.redirect("/account");
   } else next();
@@ -234,6 +235,10 @@ exports.process_password_reset = function(req, res, next){
       return res.redirect("/");
     }
   });
+}
+
+exports.editsettings= function(req, res, next) {
+  res.render('users/editsettings');
 }
 
 exports.myprofile = function(req, res, next) {
