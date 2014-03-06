@@ -16,5 +16,6 @@
     "connect-flash": "~0.1.0",
     "express-validator": "~0.3.2",
     "express-mailer": "~0.2.0"
+
   }
 }
