@@ -57,6 +57,8 @@ exports.list = function(req, res, next){
 // Update user
 exports.update = function(req, res, next){
   var user = req.user;
+
+  console.log("req.body: " + JSON.stringify(req.body,null,'\t'));
   // remove password attribute from form if not changing
   if (!req.body.password) delete req.body.password;
   // ensure valid current password
@@ -93,9 +95,30 @@ exports.update = function(req, res, next){
   }
 }
 
+exports.profile_update = function(req, res, next) {
+  var user = req.user;
+  var data = req.body;
+  User.findOne({username: user.username}, function(err, doc) {
+    if(data.profile_pic) doc.profile_url = data.profile_pic;
+    if(data.status) doc.status = data.status;
+    if(data.about) doc.about = data.about;
+    console.log("JSON from profupdate: " + JSON.stringify(req.body, null, '\t') + "\n" + JSON.stringify(doc, null, '\t'))
+
+    doc.save(function(err) { 
+      if(err) {
+        req.flash('error', "error while saving your data");
+        next(err);
+      } else {
+        req.flash('success', "Account updated successfully");
+        res.redirect('/profile');
+      }
+     });
+  });
+}
+
 // Create user
 exports.create = function(req, res, next){
-  console.log("JSON: " + JSON.stringify(req.body, null, '\t'))
+  console.log("JSON from create: " + JSON.stringify(req.body, null, '\t'))
   var newUser = new User(req.body);
   newUser.save(function(err, user){
     
@@ -120,6 +143,7 @@ exports.create = function(req, res, next){
 
 // Validations for user objects upon user update or create
 exports.userValidations = function(req, res, next){
+  console.log("JSON from user valid: " + JSON.stringify(req.body, null, '\t'))
   var creatingUser = req.url == "/register";
   var updatingUser = !creatingUser; // only to improve readability
   req.assert('email', 'You must provide an email address.').notEmpty();

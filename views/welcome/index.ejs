@@ -1,80 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Town and Country</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel='stylesheet' href='/css/bootstrap.min.css' /> -->
-    <link href="/css/bootstrap.css" rel="stylesheet">
-    <!-- <link rel='stylesheet' href='/css/bootstrap-responsive.min.css' /> -->
-    <!-- <link rel='stylesheet' href='/css/style.css' /> -->
-    <script src="/js/jquery-1.9.1.js"></script>
-    <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="/js/main.js"></script>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-  </head>
-  <body>
-    <% include ../shared/navigation.ejs %>
-    <% include ../shared/alert_messages.ejs %>
+<% layout(layoutPath2) -%>
     <div class="bs-docs-featurette">
       <div class="container">
         <% include ../shared/header %>
       </div>
     </div>
     <div class ="bs-docs-featurette">
-    <div class ="container">
-    <div class="row">
-    <div class="col-lg-12">
-    <div class="page-header">
-      <h1 > Welcome!</h1>
-    </div>
-    <div class="container">
-      <div class="col-lg-12">
-        <ol class="breadcrumb">
-          <li><a href="#">About</a></li>
-          <li><a href="#">What we make</a></li>
-        </ol>
-      </div>
-      <!-- body content-->
-      <div style="background-color:white; margin-bottom:20px; border-radius: 10px;" class="row">
-        <div class="col-md-12">
-          <div class="divider"></div>
-          <h2><strong>About</strong></h2>
-          <p>We are part of the UCSD Global Ties- Town and Country Learning Center Project</p>
-          <p>Students work with the Learning Center at the Town and Country community housing complex to provide imaginative and innovative technological devices, tools, and interfaces to help children expand their horizons.</p>
-        </div>
-      </div>
-      <div style="background-color:white; margin-bottom:20px; border-radius: 10px;" class="row">
-        <div class="col-md-12">
-          <div class="divider"></div>
-          <h2><strong>What we make</strong></h2>
-          <div class="row">
-            <div class="col-md-11 col-md-offset-1">
-              <p>We hack Android and Web Projects</p>
-              <p>Our Android project includes the TnC Music Studio, which engages students in making their own music by using a piano and several awesome beats</p>
-              <p>Our Web Project (this) is for students to learn how to create their own social identity through music</p>
+      <div class ="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 > Welcome!</h1>
+            </div>
+            <div class="container">
+              <div class="col-lg-12">
+                <ol class="breadcrumb">
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">What we make</a></li>
+                </ol>
+              </div>
+              <div style="background-color:white; margin-bottom:20px; border-radius: 10px;" class="row">
+                <div class="col-md-12">
+                  <div class="divider"></div>
+                  <h2><strong>About</strong></h2>
+                  <p>We are part of the UCSD Global Ties- Town and Country Learning Center Project</p>
+                  <p>Students work with the Learning Center at the Town and Country community housing complex to provide imaginative and innovative technological devices, tools, and interfaces to help children expand their horizons.</p>
+                </div>
+              </div>
+              <div style="background-color:white; margin-bottom:20px; border-radius: 10px;" class="row">
+                <div class="col-md-12">
+                  <div class="divider"></div>
+                  <h2><strong>What we make</strong></h2>
+                  <div class="row">
+                    <div class="col-md-11 col-md-offset-1">
+                      <p>We hack Android and Web Projects</p>
+                      <p>Our Android project includes the TnC Music Studio, which engages students in making their own music by using a piano and several awesome beats</p>
+                      <p>Our Web Project (this) is for students to learn how to create their own social identity through music</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="divider"></div>
+                  <h2><strong>Some of our example badges</strong></h2>
+                  <div class="row">
+                    <img src="/img/midimau5.jpg" style= "max-width:300px" class ="col-md-2 col-md-offset-1">
+                    <img src="/img/vinyl.jpg" style= "max-width:300px" class="col-md-2 col-md-offset-1">
+                    <img src="/img/dynamite.jpg" style= "max-width:300px" class="col-md-2 col-md-offset-1">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-12">
-          <div class="divider"></div>
-          <h2><strong>Some of our example badges</strong></h2>
-          <div class="row">
-            <img src="/img/midimau5.jpg" style= "max-width:300px" class ="col-md-2 col-md-offset-1">
-            <img src="/img/vinyl.jpg" style= "max-width:300px" class="col-md-2 col-md-offset-1">
-            <img src="/img/dynamite.jpg" style= "max-width:300px" class="col-md-2 col-md-offset-1">
-          </div>
-        </div>
       </div>
     </div>
-    <div class ="container">
-      <% include ../shared/footer %> 
-    </div>
-  </body>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.10.1.min.js"><\/script>')</script>
 
-    <script src="js/bootstrap.min.js"></script>
-</html>

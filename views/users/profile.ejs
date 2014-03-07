@@ -1,32 +1,53 @@
-<% layout(layoutPath) -%>
-         <div class="row">
-            <div class="col-md-4"><img src="/img/john.jpg"></div>
-            <div class="col-md-4">
+<% layout(layoutPath2) -%>
+      <div class="bs-docs-featurette" style="padding-top:35px; padding-bottom:25px; background: #f4f4f7">
+         <div class="container">
+           <div class="row">
+             <div class="col-md-4">
+               <% if(user.profile_url) { %>
+                 <img src ="<%=user.profile_url%>" style = "width:150px; height: 150px">
+               <% }else {%>
+                 <img src="http://placehold.it/150x150">
+               <%} %>
+             </div>
+             <div class="col-md-8">
                <h2 class="profileName">
-                  <p style="margin-top: 270px">John Chou</p>
+                  <p style=""><%= user.firstName %> <%= user.lastName %></p>
                </h2>
+               <h4>Status: 
+               <% if(user.status) {%>
+               <%= user.status %> 
+               <% } else { %>
+                  Set your status <a href = "/editsetting">Here!</a>
+                  <% } %></h4>
             </div>
+           </div>
          </div>
+      </div>
+      <div class="bs-docs-featurette">
+      <div class="container">
          <br>
          <div class="col-lg-12">
             <ol class="breadcrumb">
                <li><a href="#">About</a></li>
                <li><a href="#">My Jams</a></li>
-               <li class="active">My Badges</li>
+               <li><a href ="#">My Badges</a></li>
             </ol>
          </div>
          <!-- body content-->
-         <div style="background-color:white; margin-bottom:20px; border-radius: 10px;" class="row">
+         <div style="background-color:white; margin-bottom:20px; border-radius: 3px;" class="row">
             <div class="col-md-12">
                <div class="divider"></div>
-               <h2><strong>About</strong></h2>
-               <p>I am&period;&period;&period;&period;</p>
-               <p>Age&colon;</p>
-               <p>Sex&colon;</p>
-               <p>Adress</p>
+               <h2><strong>About Me:</strong></h2>
+               <p>
+               <%= user.about%>
+               </p>
             </div>
          </div>
-         <div style="background-color:white; margin-bottom:20px; border-radius: 10px;" class="row">
+         </div>
+         </div>
+         <div class="bs-docs-featurette">
+         <div class="container">
+         <div style="background-color:white; margin-bottom:20px; border-radius: 3px;" class="row">
             <div class="col-md-12">
                <div class="divider"></div>
                <h2><strong>My Jams</strong></h2>
@@ -37,18 +58,22 @@
                </div>
             </div>
          </div>
-         <div style="background-color:white; margin-bottom:20px; border-radius: 10px;" class="row">
+         </div>
+         </div>
+         <div class="bs-docs-featurette">
+         <div class="container">
+         <div style="background-color:white; margin-bottom:20px; border-radius: 3px;" class="row">
             <div class="col-md-12">
                <div class="divider"></div>
                <h2><strong>My Badges</strong></h2>
                <div class="row">
-                  <div class="col-md-3 col-md-offset-1">
-                     <tbody>
-                        <table class="table table-hover"><img src="/img/midimau5.jpg" style="width: 80%"></table>
-                     </tbody>
+                  <!-- <div class="col-md-3 col-md-offset-1">
+                     <img src="/img/midimau5.jpg" style="width: 80%">
                   </div>
                   <div class="col-md-3 col-md-offset-1"><img src="/img/vinyl.jpg" style="width:80%"></div>
-                  <div class="col-md-3 col-md-offset-1"><img src="/img/dynamite.jpg" style="width:80%"></div>
+                  <div class="col-md-3 col-md-offset-1"><img src="/img/dynamite.jpg" style="width:80%"></div> -->
                </div>
             </div>
          </div>
+      </div>
+      </div>

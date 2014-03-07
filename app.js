@@ -43,6 +43,7 @@ app.use(function(req, res, next){
   app.locals.errorMessages = req.flash('error'); // make error alert messages available in all views
   app.locals.successMessages = req.flash('success'); // make success messages available in all views
   app.locals.layoutPath = "../shared/layout";
+  app.locals.layoutPath2 = "../shared/layout2";
   next();
 });
 
@@ -135,11 +136,12 @@ app.get('/register', redirectAuthenticated, users.register);
 app.post('/register', redirectAuthenticated, users.userValidations, users.create);
 app.get('/account', ensureAuthenticated, users.account);
 app.post('/account', ensureAuthenticated, users.userValidations, users.update);
-app.get('/dashboard', ensureAuthenticated, users.dashboard);
+app.get('/dashboard', ensureAuthenticated, users.myprofile);
 app.get('/logout', users.logout);
 app.get('/users', ensureAuthenticated, users.list); // for illustrative purposes only
 app.get('/profile', ensureAuthenticated, users.myprofile);
 app.get('/editsetting', ensureAuthenticated, users.editsettings);
+app.post('/editsetting', ensureAuthenticated, users.profile_update);
 app.all('*', welcome.not_found);
 
 // Start Server w/ DB Connection

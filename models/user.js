@@ -6,11 +6,14 @@ var mongoose = require('mongoose')
 var UserSchema = new Schema({
   createdAt : { type: Date, default: Date.now },
   username : { type: String, required: true, index: { unique: true } },
-  firstName : { type: String, required: true, index: { unique: false } },
+  firstName : { type: String, required: true, index : { unique: false } },
   lastName : { type: String, required: true, index: { unique: false } },
   email : { type: String, required: true, index: { unique: true } },
   password : { type: String, required: true },
   resetPasswordToken : { type: String, required: false },
+  profile_url: {type: String, required: false},
+  status: {type: String, required: false},
+  about: {type: String, required: false},
   resetPasswordTokenCreatedAt : { type: Date }
 });
 
@@ -54,6 +57,17 @@ UserSchema.methods.generatePerishableToken = function(cb){
       else cb(null,hash);
     });
   });
+}
+
+UserSchema.methods.updateEditSettings = function(data, cb) {
+  UserSchema.findOne({username: data.username}, function(err, doc) {
+    if(data.profile_pic) doc.profile_url = data.profile_pic;
+    if(data.status) doc.status = data.status;
+    if(data.about) doc.about = data.about;
+    doc.save(function(err) { 
+      cb(err);
+    });
+  })
 }
 
 module.exports = mongoose.model('User', UserSchema);
