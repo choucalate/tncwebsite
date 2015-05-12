@@ -76,6 +76,22 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+          <label class="form-inline control-label">Youtube Links</label> 
+          <!-- Current Links -->
+          <% if(user.youtube_links) {%>
+          <% user.youtube_links.forEach(function(link){ %>
+            <div>
+            <%=link%>
+            </div>
+          <% }) %>
+          <%} %>
+          <div class="form-group">
+            <input name ="youtube_links" type="text" class="form-control" placeholder="Youtube Link">
+          </div>
+        </div>
+      </div>
       <div class="row" align="right">
         <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
         <button type="submit" class="btn btn-primary">Save Changes</button>

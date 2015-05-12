@@ -1,5 +1,6 @@
 // Get homepage
 exports.index = function(req, res){
+	console.log("REDIRECTING TO... : " + req.isAuthenticated())
   if(req.isAuthenticated()) return res.redirect('/dashboard');
   res.render('welcome/index');
 }

@@ -34,7 +34,7 @@ app.use(passport.session());
 
 var uristring = process.env.MONGOHQ_URL ||
                 process.env.MONGOLAB_URI ||
-                'mongodb://localhost/nodedemo';
+                'mongodb://localhost/tncwebsite2';
 // Helpers
 
 app.use(function(req, res, next){

@@ -1,4 +1,5 @@
 <% layout(layoutPath2) -%>
+      <script src="/js/myaudio.js"></script>
       <div class="bs-docs-featurette" style="padding-top:35px; padding-bottom:25px; background: #f4f4f7">
          <div class="container">
            <div class="row">
@@ -39,7 +40,9 @@
                <div class="divider"></div>
                <h2><strong>About Me:</strong></h2>
                <p>
+               <% if(user.about) {%>
                <%= user.about%>
+               <% } %>
                </p>
             </div>
          </div>
@@ -52,9 +55,13 @@
                <div class="divider"></div>
                <h2><strong>My Jams</strong></h2>
                <div class="row">
-                  <div class="col-md-3 col-md-offset-1"><iframe width="250" height="200" src="http://www.youtube.com/embed/eZxo9mrWgR8" frameborder="0" allowfullscreen=""></iframe></div>
-                  <div class="col-md-3 col-md-offset-1"><iframe width="250" height="200" src="http://www.youtube.com/embed/p9mmhh_wvkA" frameborder="0" allowfullscreen=""></iframe></div>
-                  <div class="col-md-3 col-md-offset-1"><iframe width="250" height="200" src="http://www.youtube.com/embed/eZxo9mrWgR8" frameborder="0" allowfullscreen=""></iframe></div>
+                  <!-- Current Links -->
+                   <% if(user.youtube_links) {%>
+                   <% user.youtube_links.forEach(function(link){ %>
+                     <div class="col-md-3 col-md-offset-1"><iframe width="250" height="200" src="http://www.youtube.com/embed/<%=link%>"
+                     frameborder="0" allowfullscreen=""></iframe></div>
+                   <% }) %>
+                   <%} %>
                </div>
             </div>
          </div>
@@ -65,7 +72,7 @@
          <div style="background-color:white; margin-bottom:20px; border-radius: 3px;" class="row">
             <div class="col-md-12">
                <div class="divider"></div>
-               <h2><strong>My Badges</strong></h2>
+               <h2><strong>My Songs</strong></h2>
                <div class="row">
                   <!-- <div class="col-md-3 col-md-offset-1">
                      <img src="/img/midimau5.jpg" style="width: 80%">

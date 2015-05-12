@@ -14,7 +14,8 @@ var UserSchema = new Schema({
   profile_url: {type: String, required: false},
   status: {type: String, required: false},
   about: {type: String, required: false},
-  resetPasswordTokenCreatedAt : { type: Date }
+  resetPasswordTokenCreatedAt : { type: Date },
+  youtube_links: {type: [String], required: false}
 });
 
 
@@ -61,9 +62,12 @@ UserSchema.methods.generatePerishableToken = function(cb){
 
 UserSchema.methods.updateEditSettings = function(data, cb) {
   UserSchema.findOne({username: data.username}, function(err, doc) {
+    // here if the data elements coming in are set, then we set them into the document user
     if(data.profile_pic) doc.profile_url = data.profile_pic;
     if(data.status) doc.status = data.status;
     if(data.about) doc.about = data.about;
+    if(data.youtube_links) doc.youtube_links = data.youtube_links;
+
     doc.save(function(err) { 
       cb(err);
     });

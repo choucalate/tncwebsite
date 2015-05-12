@@ -99,9 +99,27 @@ exports.profile_update = function(req, res, next) {
   var user = req.user;
   var data = req.body;
   User.findOne({username: user.username}, function(err, doc) {
+      // here if the data elements coming in are set, then we set them into the document user
     if(data.profile_pic) doc.profile_url = data.profile_pic;
     if(data.status) doc.status = data.status;
     if(data.about) doc.about = data.about;
+    if(data.youtube_links) {
+      if (!doc.youtube_links) { doc.youtube_links = []; }
+      // if it doesn't contain the word youtube... get rid of it
+      if (data.youtube_links.indexOf("youtube.com") == -1) {
+        // console.log(" this is an error...");
+        // var err= 'not a valid youtube link: ' + data.youtube_links;
+        // req.flash('error', "FAILURE..");
+        // res.redirect('/editsetting');
+        // // req.flash('error', "FAILURE2..");
+        // // next(err);
+
+        // return;
+      }
+
+      doc.youtube_links.push(data.youtube_links);
+    }
+
     console.log("JSON from profupdate: " + JSON.stringify(req.body, null, '\t') + "\n" + JSON.stringify(doc, null, '\t'))
 
     doc.save(function(err) { 
@@ -266,5 +284,6 @@ exports.editsettings= function(req, res, next) {
 }
 
 exports.myprofile = function(req, res, next) {
+  console.log("RENDERING USERS PROFILE");
   res.render('users/profile');
 }
