@@ -142,6 +142,7 @@ app.get('/users', ensureAuthenticated, users.list); // for illustrative purposes
 app.get('/profile', ensureAuthenticated, users.myprofile);
 app.get('/editsetting', ensureAuthenticated, users.editsettings);
 app.post('/editsetting', ensureAuthenticated, users.profile_update);
+app.post('/send_jam', users.save_jam);
 app.all('*', welcome.not_found);
 
 // Start Server w/ DB Connection

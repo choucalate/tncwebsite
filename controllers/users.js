@@ -287,3 +287,10 @@ exports.myprofile = function(req, res, next) {
   console.log("RENDERING USERS PROFILE");
   res.render('users/profile');
 }
+
+
+exports.save_jam = function(req, res, next) {
+  console.log("SAVING JAM ROUTE");
+  console.log("result: " + JSON.stringify(req.body));
+  res.end(JSON.stringify({"result": "yes"}));
+}
