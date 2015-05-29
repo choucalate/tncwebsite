@@ -3,6 +3,14 @@ var mongoose = require('mongoose')
   , bcrypt = require('bcrypt')
   , SALT_WORK_FACTOR = 10;
 
+var SongSchema = new Schema({ 
+  song_title: String,
+  data: [{
+    "sound": String,
+    "offset": Number
+  }]
+});
+
 var UserSchema = new Schema({
   createdAt : { type: Date, default: Date.now },
   username : { type: String, required: true, index: { unique: true } },
@@ -15,7 +23,8 @@ var UserSchema = new Schema({
   status: {type: String, required: false},
   about: {type: String, required: false},
   resetPasswordTokenCreatedAt : { type: Date },
-  youtube_links: {type: [String], required: false}
+  youtube_links: {type: [String], required: false},
+  jams: [SongSchema]
 });
 
 

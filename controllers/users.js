@@ -292,5 +292,74 @@ exports.myprofile = function(req, res, next) {
 exports.save_jam = function(req, res, next) {
   console.log("SAVING JAM ROUTE");
   console.log("result: " + JSON.stringify(req.body));
-  res.end(JSON.stringify({"result": "yes"}));
+
+  
+  var user = req.body.user_name;
+  var title = req.body.song_title;
+  var old_data = req.body.data;
+
+  if (!user || !title || !old_data) {
+    res.status(400).json({ error: 'something is wrong' });
+    return;
+  }
+
+  console.log("NOW FINDING USER: " + user);
+  User.findOne({username: user}, function(err, doc) {
+    if(err || !doc) {
+      res.status(400).json({ error: 'something is wrong' });
+      return;
+    }
+    console.log("no errors and doc is found");
+    if (!doc.jams) {
+      doc.jams = [];
+    }
+
+    for(var i = 0; i < doc.jams.length; i++) {
+      if (doc.jams[i].song_title === title) {
+        console.log("TITLE MATCHES... " + title);
+        res.status(400).json({ error: 'already got this sound before'});
+        return;
+      } 
+    }
+
+    // time to convert all the data
+    var result = {
+      song_title: title,
+      data: []
+    };
+
+    old_data.forEach(function(val) {
+      result.data.push({
+        "offset": parseInt(val.offset),
+        "sound": val.sound
+      })
+    });
+    console.log("The data: " + JSON.stringify(result, null , "\t"));
+    doc.jams.push(result);
+
+    doc.save(function(err) { 
+      if(err) {
+        res.status(400).json({ error: 'something is wrong' });
+        return;
+      } else {
+        res.end(JSON.stringify({"result": "success"}));
+      }
+     });
+  });  
+}
+
+exports.list_user_jams = function(req, res, next) {
+  if(!req.params.user) {
+    res.end("no jams for this user");
+    return;
+  }
+  console.log("listing all jams for user: " + req.params.user);
+  User.findOne({username: req.params.user}, function(err, doc) {
+    if(err || !doc) {
+      res.status(400).json({ error: 'no jams found' });
+      return;
+    }
+    res.end(JSON.stringify(doc.jams, null, '\t'));
+  })
+  
 }

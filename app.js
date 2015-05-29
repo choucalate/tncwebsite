@@ -1,6 +1,6 @@
 
 // Module Dependencies and Setup
-
+// TODO CHANGE BCRYPT TO - https://github.com/shaneGirish/bcrypt-nodejs
 var express = require('express')
   , mongoose = require('mongoose')
   , UserModel = require('./models/user')
@@ -143,6 +143,10 @@ app.get('/profile', ensureAuthenticated, users.myprofile);
 app.get('/editsetting', ensureAuthenticated, users.editsettings);
 app.post('/editsetting', ensureAuthenticated, users.profile_update);
 app.post('/send_jam', users.save_jam);
+
+// DEBUG ROUTES...
+app.get('/listjam/:user', users.list_user_jams);
+
 app.all('*', welcome.not_found);
 
 // Start Server w/ DB Connection
