@@ -93,7 +93,7 @@ $(document).ready(function() {
 		console.log("playing at offset: " + offset);
 		setTimeout(function() {
 			
-			name = "audio/" + name;
+			name = "audio/" + name + ".ogg";
 			console.log("going to play: " + name + " index: " + index);
 			var snd1  = new Audio();
 			var src1  = document.createElement("source");
