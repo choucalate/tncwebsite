@@ -43,25 +43,69 @@ each song document will be organized to such a format that we can pull via an HT
 
 */
 
-var count = 10;
-// var i = 0;
-var currtime = new Date().getTime();
+$(document).ready(function() {
+	var username  = $('#hidden_username').text();
+	// console.log("username: " + username);
+	var allUserJams = [];
+	getJams(username);
 
-for(var i = 0; i < count; i++) {  
-   var now = new Date().getTime();
-   //playBeat("audio/piano_A3.ogg", now - currtime);
-   // playBeat("audio/piano_A4.ogg", count + 200);
-   //count += 400;
-}
+	function getJams(user) {
+		$.get("listjam/" + username, function(data) {
+			// console.log("GOT DATA: " + data);
+			allUserJams = JSON.parse(data);
+			playSong("MyJam TEST5");
+		});
+	}
+	$(".jam_item").click(function() {
+		// console.log( "asdf: " + );
+		playSong($.trim($(this).text()));
+	})
 
-function playBeat(name, offset) {
-	setTimeout(function() {
-		console.log("going to play: " + name);
-		var snd1  = new Audio();
-		var src1  = document.createElement("source");
-		src1.type = "audio/ogg";
-		src1.src  = name;
-		snd1.appendChild(src1);
-		snd1.play();
-	}, offset);
-}
+	function playSong(song_title) {
+		var song_data = [];
+		allUserJams.forEach(function(data) {
+			// console.log("data songtitle: " + data.song_title + " song: " + song_title);
+			if(data.song_title === song_title) {
+				console.log("MATCH FOUND FOR : " + song_title);
+				song_data = data.data;
+			}
+		});
+		if(song_data.length === 0) { console.log("song empty or not foudn"); return; }
+
+		console.log("data: " + JSON.stringify(song_data, null , '\t'));
+
+		var current_offset = 0;
+		var offset_arr = [];
+		for(var i = 0; i < song_data.length; i++) {
+			console.log("playing beat at: " + (song_data[i].offset - current_offset));
+			offset_arr.push({
+				sound: song_data[i].sound,
+				offset: song_data[i].offset - current_offset
+			})
+			current_offset = song_data[i].offset;
+		}
+		var index = 0;
+		playBeat(index, offset_arr[0].sound, offset_arr[0].offset, offset_arr);
+
+	}
+
+	function playBeat(index, name, offset, arr) {
+		console.log("playing at offset: " + offset);
+		setTimeout(function() {
+			
+			name = "audio/" + name + ".ogg";
+			console.log("going to play: " + name + " index: " + index);
+			var snd1  = new Audio();
+			var src1  = document.createElement("source");
+			src1.type = "audio/ogg";
+			src1.src  = name;
+			snd1.appendChild(src1);
+			snd1.play();
+
+			if(index+1 >= arr.length) return;
+			playBeat(index+1, arr[index+1].sound, arr[index+1].offset, arr);
+		}, offset);
+	}
+
+})
+

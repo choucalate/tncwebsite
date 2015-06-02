@@ -284,8 +284,10 @@ exports.editsettings= function(req, res, next) {
 }
 
 exports.myprofile = function(req, res, next) {
-  console.log("RENDERING USERS PROFILE");
-  res.render('users/profile');
+  console.log("RENDERING USERS PROFILE: " + JSON.stringify(req.user, null, '\t'));
+  res.render('users/profile', {
+    user: req.user
+  });
 }
 
 
